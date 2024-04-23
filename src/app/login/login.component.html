@@ -1,1 +1,25 @@
-<p>login works!</p>
+<body>
+
+
+<a>Smart Home</a>
+<div>
+    
+
+    <form action='' method="post">
+        
+          
+            <label for="name">Cedula</label><br/>
+            <input type="text" id="id" name="user_id" required/><br/>
+          
+          
+            <label for="mail">Contraseña</label><br/>
+            <input type="password" id="contraseña" name="user_contraseña" required /><br/>
+          
+            <input type="hidden" name="login" value="login" action="onSubmit">
+            <input type="submit" class="btn btn-primary" value="Log In" >  
+
+    </form>
+    <b>{{loginError}}</b>
+</div>
+
+</body>
