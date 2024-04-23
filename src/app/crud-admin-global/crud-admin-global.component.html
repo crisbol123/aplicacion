@@ -1,0 +1,27 @@
+<!-- app.component.html 
+
+<div class="container">
+    <h1>Selecciona una acción:</h1>
+    
+     Botones para mostrar las componentes CRUD 
+    <button (click)="showComponent('create')">Crear</button>
+    <button (click)="showComponent('read')">Leer</button>
+    <button (click)="showComponent('update')">Actualizar</button>
+    <button (click)="showComponent('delete')">Eliminar</button>
+    
+    Espacio para mostrar la componente seleccionada 
+    <div *ngIf="currentComponent">
+      <app-crud-admin-global [action]="currentComponent"></app-crud-admin-global>
+    </div>
+  </div>-->
+  
+<h1>Smart Home</h1>
+
+<nav>
+  <button routerLink="/crear-admin-local">Crear</button>
+  <button routerLink="/read-admin-local">Leer</button>
+  <button routerLink="/update-admin-local">Actualizar</button>
+  <button routerLink="/delete-admin-local">Eliminar</button>
+</nav>
+
+<router-outlet></router-outlet>
