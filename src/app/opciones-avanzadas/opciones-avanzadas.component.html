@@ -1,1 +1,60 @@
-<p>opciones-avanzadas works!</p>
+<!-- app.component.html 
+
+<div class="container">
+    <h1>Selecciona una acción:</h1>
+    
+     Botones para mostrar las componentes CRUD 
+    <button (click)="showComponent('create')">Crear</button>
+    <button (click)="showComponent('read')">Leer</button>
+    <button (click)="showComponent('update')">Actualizar</button>
+    <button (click)="showComponent('delete')">Eliminar</button>
+    
+    Espacio para mostrar la componente seleccionada 
+    <div *ngIf="currentComponent">
+      <app-crud-admin-global [action]="currentComponent"></app-crud-admin-global>
+    </div>
+  </div>-->
+  
+
+  <div class="cuerpo">
+    <h1>    Smart Home</h1>
+  
+  <nav class="navbar navbar-expand-lg " style="background-color: #e3f2fd;" >
+      <div class="container-fluid">
+        <a class="navbar-brand" >Modo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="/crear-admin-local" routerLinkActive="active" ariaCurrentWhenActive="page" class="dropdown-item" >Crear</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/read-admin-local">Buscar</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/update-admin-local">Actualizar</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/delete-admin-local">Eliminar</a></li>
+              </ul>
+            </li>
+            
+          </ul>
+          
+            <button class="btn btn-primary" type="submit">Log Out</button>
+          
+        </div>
+      </div>
+  </nav>
+  </div>
+  <!-- 
+  <nav>
+    <button routerLink="/crear-admin-local">Crear</button>
+    <button routerLink="/read-admin-local">Leer</button>
+    <button routerLink="/update-admin-local">Actualizar</button>
+    <button routerLink="/delete-admin-local">Eliminar</button>
+  </nav>
+-->
+

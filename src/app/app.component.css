@@ -7,3 +7,8 @@ app-login {
     height: 100vh;
     margin: 0;
 }
+
+.dropdown:hover > .dropdown-menu{
+    display: block;
+    margin-top: .125em;
+}

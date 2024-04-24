@@ -9,6 +9,7 @@ import { CrearAdminLocalComponent } from './crear-admin-local/crear-admin-local.
 import { ReadAdminLocalComponent } from './read-admin-local/read-admin-local.component';
 import { UpdateAdminLocalComponent } from './update-admin-local/update-admin-local.component';
 import { DeleteAdminLocalComponent } from './delete-admin-local/delete-admin-local.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-root',
@@ -20,11 +21,12 @@ import { DeleteAdminLocalComponent } from './delete-admin-local/delete-admin-loc
       InterfazPrincipalComponent,
       LoginComponent,
       FormsModule,
-      CRUDAdminGlobalComponent,CrearAdminLocalComponent,ReadAdminLocalComponent,UpdateAdminLocalComponent,DeleteAdminLocalComponent
+      CRUDAdminGlobalComponent,CrearAdminLocalComponent,ReadAdminLocalComponent,UpdateAdminLocalComponent,DeleteAdminLocalComponent,CommonModule
       
     ]
 })
 export class AppComponent {
   title = 'aplicacion';
+  Interfaz:boolean = false;
 }import { routes } from './app.routes';
 
