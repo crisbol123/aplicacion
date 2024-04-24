@@ -4,6 +4,7 @@ import { ReadAdminLocalComponent } from './read-admin-local/read-admin-local.com
 import { UpdateAdminLocalComponent } from './update-admin-local/update-admin-local.component';
 import { DeleteAdminLocalComponent } from './delete-admin-local/delete-admin-local.component';
 import { InterfazPrincipalComponent } from './interfaz-principal/interfaz-principal.component';
+import { OpcionesAvanzadasComponent } from './opciones-avanzadas/opciones-avanzadas.component';
 
 export const routes: Routes = [
 
@@ -11,10 +12,8 @@ export const routes: Routes = [
   { path: 'read-admin-local', component: ReadAdminLocalComponent },
   { path: 'update-admin-local', component: UpdateAdminLocalComponent },
   { path: 'delete-admin-local', component: DeleteAdminLocalComponent },
-   
-  { path: 'interfaz-principal', component: InterfazPrincipalComponent }
-
-
+  { path: 'interfaz-principal', component: InterfazPrincipalComponent },
+  { path: 'opciones-avanzadas',component: OpcionesAvanzadasComponent}
 ];
 
 
