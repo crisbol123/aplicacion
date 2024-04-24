@@ -1,0 +1,48 @@
+h2{
+    
+    margin-bottom: 0px;
+    margin-top: 10px;
+    justify-content: center;
+    color: #000000; /* Azul */
+    font-size: 2.3em; /* Tamaño grande */
+    cursor: default;
+    
+}.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+  
+  form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.603);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  .btn-primary {
+    width: 100%;
+  }
+  
+  /* Ajuste para el título */
+  
+  
+  /* Ajustes adicionales */
+  .mb-3 {
+    margin-bottom: 1.5rem;
+  }
+  
+  .mt-4 {
+    margin-top: 1rem;
+  }
+  
