@@ -6,6 +6,8 @@ import { DeleteAdminLocalComponent } from './delete-admin-local/delete-admin-loc
 import { InterfazPrincipalComponent } from './interfaz-principal/interfaz-principal.component';
 import { OpcionesAvanzadasComponent } from './opciones-avanzadas/opciones-avanzadas.component';
 
+import { LoginComponent } from './login/login.component';
+import { CRUDAdminGlobalComponent } from './crud-admin-global/crud-admin-global.component';
 export const routes: Routes = [
 
   { path: 'crear-admin-local', component: CrearAdminLocalComponent },
@@ -13,7 +15,11 @@ export const routes: Routes = [
   { path: 'update-admin-local', component: UpdateAdminLocalComponent },
   { path: 'delete-admin-local', component: DeleteAdminLocalComponent },
   { path: 'interfaz-principal', component: InterfazPrincipalComponent },
-  { path: 'opciones-avanzadas',component: OpcionesAvanzadasComponent}
+  { path: 'opciones-avanzadas',component: OpcionesAvanzadasComponent},
+  { path:'login',component:LoginComponent},
+  {path :'Admin-Global',component:CRUDAdminGlobalComponent},
+  
+
 ];
 
 
