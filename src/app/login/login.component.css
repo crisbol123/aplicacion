@@ -37,6 +37,7 @@ input[type="password"] {
 
 .alert {
     margin-bottom: 15px;
+    margin-top: 10px;
 }
 
 button {
@@ -47,6 +48,7 @@ button {
     border-radius: 4px;
     cursor: pointer;
     font-size: 1em;
+    margin-top: 10px;
 }
 
 button:hover {

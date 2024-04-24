@@ -1,0 +1,55 @@
+.container {
+    max-width: 400px;
+    margin-top: 0px;
+  }
+  h2{
+    
+    margin-bottom: 0px;
+    margin-top: 20px;
+    justify-content: center;
+    color: #000000; /* Azul */
+    font-size: 2.3em; /* Tamaño grande */
+    cursor: default;
+    
+}
+  
+  .form-group {
+    margin-bottom: 25px;
+  }
+  form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.603);
+  }
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  .text-danger {
+    font-size: 0.9rem;
+  }
+  
+  /* Centrar el formulario */
+  .center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .center-form {
+    width: 100%;
+    max-width: 400px;
+  }
