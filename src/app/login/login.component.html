@@ -5,28 +5,30 @@
     <h1 class="title">Smart Home</h1>
   
     <!-- Formulario de Login -->
-    <form >
+    <form  (ngSubmit)="onSubmit()" #loginForm="ngForm" method="post">
       <!-- Campo para ID de Usuario -->
-      <div class="form-group">
-        <label for="userId">ID de Usuario:</label>
-        <input type="text" class="form-control" id="userId" name="userId" [(ngModel)]="userId" required>
-      </div>
-  
-      <!-- Campo para Contraseña -->
-      <div class="form-group">
-        <label for="password">Contraseña:</label>
-        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
-      </div>
   
       <!-- Mensaje de Error -->
       
+      <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Cedula</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+      <div *ngIf="loginError" class="alert alert-danger">
+        Credenciales incorrectos. Por favor, inténtalo de nuevo.
+      </div>
   
-      <!-- Botón de Login -->
-      <input type="submit" class="btn btn-primary" value="Log In" (click)="onSubmit()">
+      <!-- Botón de Login 
+      <input type="submit" class="btn btn-primary" value="Log In" (click)="onSubmit()">-->
+      <button type="submit" class="btn btn-primary">Login</button>
     </form>
-    <input type="submit" class="btn btn-primary" value="Log In" (click)="onSubmit()">
-    <p>
+    <!--<input type="submit" class="btn btn-primary" value="Log In" (click)="onSubmit()">-->
+    <!--<p>
       {{errorLogin}}jkhkj
-    </p>
+    </p>-->
   </div>
   

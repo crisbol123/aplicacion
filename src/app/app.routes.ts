@@ -5,7 +5,7 @@ import { UpdateAdminLocalComponent } from './update-admin-local/update-admin-loc
 import { DeleteAdminLocalComponent } from './delete-admin-local/delete-admin-local.component';
 
 export const routes: Routes = [
-{ path: '', redirectTo: '/crear', pathMatch: 'full' },
+
   { path: 'crear-admin-local', component: CrearAdminLocalComponent },
   { path: 'read-admin-local', component: ReadAdminLocalComponent },
   { path: 'update-admin-local', component: UpdateAdminLocalComponent },
