@@ -15,6 +15,11 @@ export class CRUDAdminGlobalComponent {
 
 
   currentComponent: string = "";
+  Interfaz="";
+
+  logout(){
+    
+  }
 
   showComponent(action: string): void {
     this.currentComponent = action;
