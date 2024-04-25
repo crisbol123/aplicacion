@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { CRUDAdminGlobalComponent } from '../crud-admin-global/crud-admin-global.component';
 
 @Component({
   selector: 'app-delete-admin-local',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,FormsModule,CRUDAdminGlobalComponent],
   templateUrl: './delete-admin-local.component.html',
   styleUrl: './delete-admin-local.component.css'
 })
