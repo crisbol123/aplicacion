@@ -1,27 +1,17 @@
 
 <div class="d-flex justify-content-around">
-  <div class="card" style="width: 18rem;">
-    <img src="{{source1}}" class="card-img-top" alt="...">
+   @for (luz of luces; track luz) {
+    <div class="card" style="width: 18rem;">
+    @if (luz.estado==1) {
+        <img src="assets/bomibllo_encendido.jpeg" class="card-img-top" alt="...">
+    }@else{
+        <img src="assets/bombillo_apagado.png"class="card-img-top" alt="...">
+    }
     <div class="card-body">
-      <h5 class="card-title">Card title 1</h5>
+      <h5 class="card-title">{{luz.id_bombillo}}</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <button mat-flat-button color="primary" (click)="cambiarEstado(luz)">Encender/Apagar</button>
     </div>
-  </div>
-  <div class="card" style="width: 18rem;">
-    <img src="{{source2}}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title 2</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-  <div class="card" style="width: 18rem;">
-    <img src="{{source3}}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title 3</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
+        </div>
+    }
 </div>
