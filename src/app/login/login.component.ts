@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit{
       this.router.navigate(['/crear-admin-local']);
     }
     Local(){
-      this.router.navigate(['/barra-admin-local']);
+      this.router.navigate(['/interfaz-principal']);
     }
 
     ngOnInit(): void {

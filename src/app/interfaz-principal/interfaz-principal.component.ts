@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LucesComponent } from "../luces/luces.component";
+import { BarraAdminLocalComponent } from "../barra-admin-local/barra-admin-local.component";
 
 @Component({
     selector: 'app-interfaz-principal',
     standalone: true,
     templateUrl: './interfaz-principal.component.html',
     styleUrl: './interfaz-principal.component.css',
-    imports: [CommonModule, FormsModule, LucesComponent]
+    imports: [CommonModule, FormsModule, LucesComponent, BarraAdminLocalComponent]
 })
 export class InterfazPrincipalComponent {
 mostrarComponente:boolean = false;
