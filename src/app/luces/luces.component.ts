@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
+import { SolicitudesPhpLuzService } from '../solicitudes-php-luz.service';
 @Component({
   selector: 'app-luces',
   standalone: true,
@@ -20,13 +21,14 @@ export class LucesComponent implements OnInit {
   estado2 =0;
   estado3 =0;
   
-  constructor(private http: HttpClient) {}
+  constructor(private service: SolicitudesPhpLuzService) {}
 
   cambiarEstado(luzo:Luz){
+    
       console.log(luzo);
       luzo.estado=!luzo.estado;
       const data = { estado: luzo.estado, id_bombillo: luzo.id_bombillo }; // Datos que quieres enviar en la solicitud
-    this.http.post('http://localhost:8081/luces/actualizarEstado', data).subscribe(response => {
+      this.service.postRequest(data).subscribe(response => {
       console.log(response);
   });
   }
@@ -34,7 +36,7 @@ export class LucesComponent implements OnInit {
 ngOnInit(): void {
   
 
-  this.http.get<any>('http://localhost:8081/luces/recibirEstado').subscribe(data => {
+  this.service.getRequest().subscribe(data => {
     console.log(data); 
     this.luces= data;
 });

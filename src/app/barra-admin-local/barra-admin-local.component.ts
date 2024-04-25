@@ -6,7 +6,9 @@ import { routes } from '../app.routes';
 
 
 @Component({
+
   selector: 'app-barra-admin-local',
+
   standalone: true,
   imports: [CommonModule,RouterOutlet,RouterLink,RouterLinkActive],
   templateUrl: './barra-admin-local.component.html',

@@ -12,8 +12,8 @@ import { DeleteAdminLocalComponent } from './delete-admin-local/delete-admin-loc
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ServicioBarraService } from './servicio-barra.service';
-
-
+import { Injectable } from '@angular/core';
+import { SolicitudesPhpLuzService } from './solicitudes-php-luz.service';
 @Component({
     selector: 'app-root',
     standalone: true,
@@ -25,9 +25,10 @@ import { ServicioBarraService } from './servicio-barra.service';
       LoginComponent,
       FormsModule,
       CRUDAdminGlobalComponent,CrearAdminLocalComponent,ReadAdminLocalComponent,
-      UpdateAdminLocalComponent,DeleteAdminLocalComponent,CommonModule, HttpClientModule
-      
-    ]
+      UpdateAdminLocalComponent,DeleteAdminLocalComponent,CommonModule, HttpClientModule,
+     
+    ],
+    providers: [SolicitudesPhpLuzService]
 })
 export class AppComponent {
   
