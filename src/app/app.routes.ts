@@ -7,10 +7,18 @@ import { InterfazPrincipalComponent } from './interfaz-principal/interfaz-princi
 import { LucesComponent } from './luces/luces.component';
 import { AlarmaComponent } from './alarma/alarma.component';
 import { OpcionesAvanzadasComponent } from './opciones-avanzadas/opciones-avanzadas.component';
-
 import { LoginComponent } from './login/login.component';
 import { CRUDAdminGlobalComponent } from './crud-admin-global/crud-admin-global.component';
 import { BarraAdminLocalComponent } from './barra-admin-local/barra-admin-local.component';
+import { InvitadoCrearComponent } from './invitado-crear/invitado-crear.component';
+import { InvitadoBuscarComponent } from './invitado-buscar/invitado-buscar.component';
+import { InvitadoActualizarComponent } from './invitado-actualizar/invitado-actualizar.component';
+import { compileClassDebugInfo } from '@angular/compiler';
+import { Component } from '@angular/core';
+import { InvitadoEliminarComponent } from './invitado-eliminar/invitado-eliminar.component';
+import { Modo1Component } from './modo1/modo1.component';
+import { Modo2Component } from './modo2/modo2.component';
+import { AdjustTimeComponent } from './adjust-time/adjust-time.component';
 export const routes: Routes = [
 
   { path: 'crear-admin-local', component: CrearAdminLocalComponent },
@@ -18,18 +26,21 @@ export const routes: Routes = [
   { path: 'update-admin-local', component: UpdateAdminLocalComponent },
   { path: 'delete-admin-local', component: DeleteAdminLocalComponent },
   {path: 'barra-admin-local', component:BarraAdminLocalComponent} ,
-
-
   { path: 'interfaz-principal', component: InterfazPrincipalComponent },
   { path: 'luces', component: LucesComponent },
   { path: 'alarma', component: AlarmaComponent },
-
-
-
   { path: 'opciones-avanzadas',component: OpcionesAvanzadasComponent},
   { path:'login',component:LoginComponent},
   { path:'',component:LoginComponent},
   {path :'Admin-Global',component:CRUDAdminGlobalComponent},
+  {path :'Admin-Global',component:CRUDAdminGlobalComponent},
+  {path: 'invitado-crear',component:InvitadoCrearComponent},
+  {path: 'invitado-buscar',component:InvitadoBuscarComponent},
+  {path: 'invitado-actualizar',component: InvitadoActualizarComponent},
+  {path: 'invitado-eliminar',component: InvitadoEliminarComponent},
+  {path: 'modo1',component: Modo1Component},
+  {path: 'modo2',component: Modo2Component},
+  {path: 'adjust-time',component: AdjustTimeComponent}
 ];
 
 

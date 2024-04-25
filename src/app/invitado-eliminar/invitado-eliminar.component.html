@@ -1,0 +1,29 @@
+<app-barra-admin-local></app-barra-admin-local>
+<h2 class="text-center">Eliminar Administrador Local</h2>
+<div class="container mt-5">
+    
+    <form (ngSubmit)="eliminarUsuario()" #eliminarForm="ngForm" class="mt-4">
+      <!-- Campo para Cédula -->
+      <div class="mb-3">
+        <label for="cedula" class="form-label">Cédula:</label>
+        <input 
+          type="number" 
+          class="form-control" 
+          id="cedula" 
+          name="cedula" 
+          [(ngModel)]="cedula"
+          pattern="^[1-9]\d*$"
+          #cedulacontrol="ngModel"
+          required>
+        <div *ngIf="(submitted && cedulacontrol.invalid) || (cedulacontrol.invalid && (cedulacontrol.dirty || cedulacontrol.touched))" class="text-danger">
+          <div *ngIf="cedulacontrol.errors?.['required']">Cédula es requerida.</div>
+          <div *ngIf="cedulacontrol.errors?.['pattern']">Ingrese un número de cédula valido.</div>
+        </div>
+      </div>
+  
+      <!-- Botón de Eliminar -->
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+      </div>
+    </form>
+</div>

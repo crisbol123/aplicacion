@@ -9,7 +9,3 @@ h1{
 .cuerpo{
     background-color: #e3f2fd;
 }
-.dropdown:hover > .dropdown-menu{
-    display: block;
-    margin-top: .125em;
-}

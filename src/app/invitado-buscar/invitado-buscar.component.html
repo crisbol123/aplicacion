@@ -1,0 +1,78 @@
+<app-barra-admin-local></app-barra-admin-local>
+<h2 class="text-center">Administradores Locales Registrados</h2>
+<div class="container">
+  
+
+  <table class="table table-bordered mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Cédula</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Número</th>
+        <th scope="col">Correo</th>
+        <th scope="col">luces</th>
+        <th scope="col">alarma</th>
+        <th scope="col">temperatura</th>
+        <th scope="col">puerta1</th>
+        <th scope="col">puerta2</th>
+        <th scope="col">puerta3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ user.cedula }}</td>
+        <td>{{ user.nombre }}</td>
+        <td>{{ user.numero }}</td>
+        <td>{{ user.correo }}</td>
+        <td>
+            <ng-container *ngIf="user.luces == true">
+                1
+            </ng-container>
+            <ng-container *ngIf="user.luces == false">
+                0
+            </ng-container>
+        </td>
+        <td>
+            <ng-container *ngIf="user.alarma == true">
+                1
+            </ng-container>
+            <ng-container *ngIf="user.alarma == false">
+                0
+            </ng-container>
+        </td>
+        <td>
+            <ng-container *ngIf="user.temperatura == true">
+                1
+            </ng-container>
+            <ng-container *ngIf="user.temperatura == false">
+                0
+            </ng-container>
+        </td>
+        <td>
+            <ng-container *ngIf="user.puerta1 == true">
+                1
+            </ng-container>
+            <ng-container *ngIf="user.puerta1 == false">
+                0
+            </ng-container>
+        </td>
+        <td>
+            <ng-container *ngIf="user.puerta2 == true">
+                1
+            </ng-container>
+            <ng-container *ngIf="user.puerta2 == false">
+                0
+            </ng-container>
+        </td>
+        <td>
+            <ng-container *ngIf="user.puerta3 == true">
+                1
+            </ng-container>
+            <ng-container *ngIf="user.puerta3 == false">
+                0
+            </ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
