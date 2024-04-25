@@ -10,6 +10,7 @@ import { ReadAdminLocalComponent } from './read-admin-local/read-admin-local.com
 import { UpdateAdminLocalComponent } from './update-admin-local/update-admin-local.component';
 import { DeleteAdminLocalComponent } from './delete-admin-local/delete-admin-local.component';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
     selector: 'app-root',
@@ -21,7 +22,8 @@ import { CommonModule } from '@angular/common';
       InterfazPrincipalComponent,
       LoginComponent,
       FormsModule,
-      CRUDAdminGlobalComponent,CrearAdminLocalComponent,ReadAdminLocalComponent,UpdateAdminLocalComponent,DeleteAdminLocalComponent,CommonModule
+      CRUDAdminGlobalComponent,CrearAdminLocalComponent,ReadAdminLocalComponent,
+      UpdateAdminLocalComponent,DeleteAdminLocalComponent,CommonModule, HttpClientModule
       
     ]
 })
