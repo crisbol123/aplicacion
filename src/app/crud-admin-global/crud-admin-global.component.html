@@ -1,6 +1,24 @@
+<!-- app.component.html 
+
+<div class="container">
+    <h1>Selecciona una acción:</h1>
+    
+     Botones para mostrar las componentes CRUD 
+    <button (click)="showComponent('create')">Crear</button>
+    <button (click)="showComponent('read')">Leer</button>
+    <button (click)="showComponent('update')">Actualizar</button>
+    <button (click)="showComponent('delete')">Eliminar</button>
+    
+    Espacio para mostrar la componente seleccionada 
+    <div *ngIf="currentComponent">
+      <app-crud-admin-global [action]="currentComponent"></app-crud-admin-global>
+    </div>
+  </div>-->
+  
 
 <div class="cuerpo">
  
+  <h1>Smart Home</h1>
 
 <nav class="navbar navbar-expand-lg " style="background-color: #e3f2fd;" >
     <div class="container-fluid">
@@ -15,7 +33,7 @@
               Admnisitradores Locales
             </a>
             <ul class="dropdown-menu">
-              <li><a href="/crear-admin-local" routerLinkActive="active" ariaCurrentWhenActive="page" class="dropdown-item" >Registrar</a></li>
+              <li><a href="/crear-admin-local" routerLinkActive="active" ariaCurrentWhenActive="page" class="dropdown-item" >Crear</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/read-admin-local">Buscar</a></li>
               <li><hr class="dropdown-divider"></li>
@@ -27,10 +45,19 @@
           
         </ul>
         
-          <button class="btn btn-primary" (click)="logout()" type="submit">Log Out</button>
+          <button class="btn btn-primary" type="submit">Log Out</button>
         
       </div>
     </div>
 </nav>
 </div>
 
+<!-- 
+<nav>
+  <button routerLink="/crear-admin-local">Crear</button>
+  <button routerLink="/read-admin-local">Leer</button>
+  <button routerLink="/update-admin-local">Actualizar</button>
+  <button routerLink="/delete-admin-local">Eliminar</button>
+</nav>
+-->
+<router-outlet></router-outlet>
