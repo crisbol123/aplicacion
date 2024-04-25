@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { CRUDAdminGlobalComponent } from '../crud-admin-global/crud-admin-global.component';
 
 @Component({
   selector: 'app-update-admin-local',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,CRUDAdminGlobalComponent],
   templateUrl: './update-admin-local.component.html',
   styleUrl: './update-admin-local.component.css'
 })

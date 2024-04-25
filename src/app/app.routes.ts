@@ -10,18 +10,26 @@ import { OpcionesAvanzadasComponent } from './opciones-avanzadas/opciones-avanza
 
 import { LoginComponent } from './login/login.component';
 import { CRUDAdminGlobalComponent } from './crud-admin-global/crud-admin-global.component';
+import { BarraAdminLocalComponent } from './barra-admin-local/barra-admin-local.component';
 export const routes: Routes = [
 
   { path: 'crear-admin-local', component: CrearAdminLocalComponent },
   { path: 'read-admin-local', component: ReadAdminLocalComponent },
   { path: 'update-admin-local', component: UpdateAdminLocalComponent },
   { path: 'delete-admin-local', component: DeleteAdminLocalComponent },
+  {path: 'barra-admin-local', component:BarraAdminLocalComponent} ,
+
+
   { path: 'interfaz-principal', component: InterfazPrincipalComponent },
   { path: 'luces', component: LucesComponent },
   { path: 'alarma', component: AlarmaComponent },
+
+
+
   { path: 'opciones-avanzadas',component: OpcionesAvanzadasComponent},
   { path:'login',component:LoginComponent},
-  {path :'Admin-Global',component:CRUDAdminGlobalComponent}
+  { path:'',component:LoginComponent},
+  {path :'Admin-Global',component:CRUDAdminGlobalComponent},
 ];
 
 

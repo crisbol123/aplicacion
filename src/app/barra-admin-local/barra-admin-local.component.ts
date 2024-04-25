@@ -9,10 +9,10 @@ import { routes } from '../app.routes';
   selector: 'app-crud-admin-global',
   standalone: true,
   imports: [CommonModule,RouterOutlet,RouterLink,RouterLinkActive],
-  templateUrl: './crud-admin-global.component.html',
-  styleUrl: './crud-admin-global.component.css'
+  templateUrl: './barra-admin-local.component.html',
+  styleUrl: './barra-admin-local.component.css'
 })
-export class CRUDAdminGlobalComponent implements OnInit {
+export class BarraAdminLocalComponent implements OnInit {
   @Input() action: string="";
 
   constructor(private miServicio:ServicioBarraService,private router: Router){}

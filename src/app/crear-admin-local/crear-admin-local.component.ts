@@ -1,11 +1,11 @@
 import { Component,ViewChild } from '@angular/core';
 import { FormsModule ,NgForm} from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { CRUDAdminGlobalComponent } from '../crud-admin-global/crud-admin-global.component';
 @Component({
   selector: 'app-crear-admin-local',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,CRUDAdminGlobalComponent],
   templateUrl: './crear-admin-local.component.html',
   styleUrl: './crear-admin-local.component.css'
 })

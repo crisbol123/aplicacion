@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet,RouterLink,RouterLinkActive } from '@angular/router';
+import { RouterOutlet,RouterLink,RouterLinkActive, Router } from '@angular/router';
 import { InterfazPrincipalComponent } from "./interfaz-principal/interfaz-principal.component";
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
@@ -10,6 +10,7 @@ import { ReadAdminLocalComponent } from './read-admin-local/read-admin-local.com
 import { UpdateAdminLocalComponent } from './update-admin-local/update-admin-local.component';
 import { DeleteAdminLocalComponent } from './delete-admin-local/delete-admin-local.component';
 import { CommonModule } from '@angular/common';
+import { ServicioBarraService } from './servicio-barra.service';
 
 @Component({
     selector: 'app-root',
@@ -26,7 +27,20 @@ import { CommonModule } from '@angular/common';
     ]
 })
 export class AppComponent {
+  
+
   title = 'aplicacion';
-  Interfaz:boolean = false;
+  Interfaz:string = "Global";
+
+  constructor(private miServicio:ServicioBarraService,private router: Router){
+    this.Interfaz=this.miServicio.Interfaz;
+  }
+  getInterfaz():string{
+    return this.miServicio.getInterfaz();
+  }
+  
+  
+
 }import { routes } from './app.routes';
+
 

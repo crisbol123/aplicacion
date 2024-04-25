@@ -1,11 +1,15 @@
 <!-- login.component.html -->
+<h1 class="text-center">Inicia Sesion</h1><br>
+<div class="container">
+ 
 
-<div class="login-container">
+
+  <div class="login-container">
     <!-- Título "Smart Home" -->
-    <h1 class="title">Smart Home</h1>
+    
   
     <!-- Formulario de Login -->
-    <form  (ngSubmit)="onSubmit()" #loginForm="ngForm" method="post">
+    <form  (ngSubmit)="onSubmit()" #loginForm="ngForm" class="mt-4">
       <!-- Campo para ID de Usuario -->
   
       <!-- Mensaje de Error -->
@@ -25,9 +29,13 @@
       <!-- Botón de Login -->
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
+    
     <!--<input type="submit" class="btn btn-primary" value="Log In" (click)="onSubmit()">-->
     <!--<p>
       {{errorLogin}}jkhkj
     </p>-->
   </div>
-  
+
+</div>
+<button (click)="Global()" type="submit" class="btn btn-secondary">Global</button><br><br> 
+<button (click)="Local()" type="submit" class="btn btn-secondary">Local</button> 
