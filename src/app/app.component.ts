@@ -10,7 +10,9 @@ import { ReadAdminLocalComponent } from './read-admin-local/read-admin-local.com
 import { UpdateAdminLocalComponent } from './update-admin-local/update-admin-local.component';
 import { DeleteAdminLocalComponent } from './delete-admin-local/delete-admin-local.component';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { ServicioBarraService } from './servicio-barra.service';
+
 
 @Component({
     selector: 'app-root',
@@ -22,7 +24,8 @@ import { ServicioBarraService } from './servicio-barra.service';
       InterfazPrincipalComponent,
       LoginComponent,
       FormsModule,
-      CRUDAdminGlobalComponent,CrearAdminLocalComponent,ReadAdminLocalComponent,UpdateAdminLocalComponent,DeleteAdminLocalComponent,CommonModule
+      CRUDAdminGlobalComponent,CrearAdminLocalComponent,ReadAdminLocalComponent,
+      UpdateAdminLocalComponent,DeleteAdminLocalComponent,CommonModule, HttpClientModule
       
     ]
 })

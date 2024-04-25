@@ -21,6 +21,11 @@ export class CRUDAdminGlobalComponent implements OnInit {
   }
 
   currentComponent: string = "";
+  Interfaz="";
+
+  logout(){
+    
+  }
 
   showComponent(action: string): void {
     this.currentComponent = action;
