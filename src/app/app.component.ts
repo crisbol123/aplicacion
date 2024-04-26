@@ -14,6 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServicioBarraService } from './servicio-barra.service';
 import { Injectable } from '@angular/core';
 import { SolicitudesPhpLuzService } from './solicitudes-php-luz.service';
+import {MatButtonModule} from '@angular/material/button';
+import { SolicitudesAlarmaService } from"./solicitudes-alarma.service";
+
 @Component({
     selector: 'app-root',
     standalone: true,
@@ -26,9 +29,9 @@ import { SolicitudesPhpLuzService } from './solicitudes-php-luz.service';
       FormsModule,
       CRUDAdminGlobalComponent,CrearAdminLocalComponent,ReadAdminLocalComponent,
       UpdateAdminLocalComponent,DeleteAdminLocalComponent,CommonModule, HttpClientModule,
-     
+      MatButtonModule
     ],
-    providers: [SolicitudesPhpLuzService]
+    providers: [SolicitudesPhpLuzService, SolicitudesAlarmaService]
 })
 export class AppComponent {
   

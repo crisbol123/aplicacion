@@ -1,0 +1,22 @@
+.arrow-icon {
+    cursor: pointer;
+  }
+
+  .my-container {
+    display: inline-block; /* Mostrar como bloque en línea para que el color de fondo se ajuste al contenido */
+    background-color: rgb(18, 169, 219); /* Cambia "lightblue" por el color que prefieras */
+    padding: 10px; /* Añade un poco de espacio alrededor de los elementos */
+  }
+  #container h2 {
+    margin-right: 10px; /* Ajusta el valor según tu preferencia para separar el título del botón */
+    margin-top: 15px;
+}
+.my-container2 {
+    display: inline-block; /* Mostrar como bloque en línea para que el color de fondo se ajuste al contenido */
+    background-color: rgb(200, 238, 12); /* Cambia "lightblue" por el color que prefieras */
+    padding: 10px; /* Añade un poco de espacio alrededor de los elementos */
+  }
+  #container2 h2 {
+    margin-right: 10px; /* Ajusta el valor según tu preferencia para separar el título del botón */
+    margin-top: 15px;
+}
