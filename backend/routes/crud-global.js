@@ -7,11 +7,8 @@ const router = express.Router();
     try {
       const connection = await pool.getConnection();
       console.log('Connected to the MySQL server.');
-      
-      
 
-
-        
+      
       router.post('/crear-admin-local', async (req, res)=>{
         let admin=req.body;
         query="select cedula, nombre, contraseña, numero, correo from local where cedula=?";
