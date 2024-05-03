@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CRUDAdminGlobalComponent } from '../crud-admin-global/crud-admin-global.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-read-admin-local',
@@ -16,4 +17,12 @@ export class ReadAdminLocalComponent {
     numero: '312135',
     correo: 'asda@aisjd.com'
   };
+  constructor(private router: Router){
+  }
+  logout(){
+    
+    this.router.navigate(['/login']);
+  }
+
+
 }
