@@ -3,7 +3,7 @@ const pool = require('../connection');
 
 const router = express.Router();
 
-(async () => {
+router.post('/crear-admin-local', async (req, res)=>{
     try {
       const connection = await pool.getConnection();
       console.log('Connected to the MySQL server.');
@@ -11,8 +11,11 @@ const router = express.Router();
       
       router.post('/crear-admin-local', async (req, res)=>{
         let admin=req.body;
+        
         query="select cedula, nombre, contraseña, numero, correo from local where cedula=?";
-        await connection.query(query,[admin.cedula],(err, results)=>{
+        
+        connection.query(query,[admin.cedula],(err, results)=>{
+        console.log('aslmlkadlknsadlk');
           if(!err){
             if(results==""){
               query="insert into local(cedula, nombre, contraseña, numero, correo) value (?,?,?,?,?)";            
@@ -32,21 +35,13 @@ const router = express.Router();
           }  
 
         })
-      
-      })
    
-        router.get('/recibirEstadoAlarma', async (req, res)=>{
-          let alarma =req.query;
-          query = "SELECT estado, fecha_estado FROM alarma ORDER BY id DESC LIMIT 1;";
-          let rta = await connection.query(query, [alarma.id]);
-          console.log(rta[0][0]);
-          res.status(200).send(rta[0][0]);
-          })
+        
       connection.release();
     } catch (error) {
       console.error('Error connecting to the MySQL server:', error);
     }
-  })();
+  });
 
  
 
