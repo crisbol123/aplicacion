@@ -33,3 +33,11 @@ export class CrearAdminLocalComponent {
     
   }
 }
+
+export class adminlocal{
+  nombre: any;
+  cedula: any;
+  contraseña: any;
+  numero: any;
+  correo: any;
+}
