@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ServiciosService } from '../servicios/servicios.service';
 import { BarraAdminLocalComponent } from '../barra-admin-local/barra-admin-local.component';
 
 @Component({
@@ -8,61 +9,56 @@ import { BarraAdminLocalComponent } from '../barra-admin-local/barra-admin-local
   templateUrl: './modo1.component.html',
   styleUrl: './modo1.component.css'
 })
-export class Modo1Component {
-  respuesta: any;
-  textBoton: string = "Activado";
-  botonInhabilitado: boolean = false;
 
-  constructor(){}
+export class Modo1Component implements OnInit {
+  respuesta: any;
+  textBoton: string = '';
+  estado: number = 0; // Inicialmente establecido en 0 para activar
+
+  constructor(private service: ServiciosService) {}
 
   ngOnInit(): void {
-    //this.getData();
-    /*if(this.respuesta == "Desactivada"){
-      this.botonInhabilitado = true;
-      this.textBoton = "Inhabilitado";
-    }*/
+    this.getData();
   }
-/*
-  getData(): void{
-    this.dataService.obtenerMensaje().subscribe(
+
+  getData(): void {
+    this.service.getRequest().subscribe(
       (data) => {
         this.respuesta = data.ultimoValor;
-        console.log(typeof this.respuesta);
-      },(error) => {
-        console.error('Motherfucker',error);
+        this.actualizarTextoBoton();
+      },
+      (error) => {
+        console.error('Error al obtener datos:', error);
       }
     );
-  }*/
+  }
 
-  
-  desactivarAlarma() {
-    if(this.textBoton == "Activado"){
-      this.textBoton = "Desactivado"
-    }else{
-      if(this.textBoton == "Desactivado"){
-        this.textBoton = "Activado";
+  postData(): void {
+    const datos = { estado: this.estado };
+
+    this.service.postRequest(datos).subscribe(
+      () => {
+      },
+      (error) => {
+        console.log('Error al enviar datos:', error);
       }
-      
-    }
-    /*
-    const datos = { estado: 'Desactivada' };
-    console.log(datos);
-    
-
-    this.postServie.postearDatos(datos).subscribe(response =>{
-      console.log("Envio: ",response);
-      this.boton();
-    },error => {
-      console.log("Error al enviar datos",error);
-    }
-  );
-  //Hacer que la alarma se desactive y coloque el boton a inabilitado */
+    );
   }
 
-
-  boton() {
-    this.textBoton = "Inhabilitado";
-    this.botonInhabilitado = true; 
-    console.log("Desactivo la alarma");
+  boton(): void {
+    this.estado = this.estado == 0 ? 1 : 0; // Cambiar entre 0 y 1
+    this.postData();
+    this.getData();
   }
+
+  actualizarTextoBoton(): void {
+    if (this.respuesta == 1) {
+      this.textBoton = 'Desactivar';
+    } else {
+      this.textBoton = 'Activar';
+    }
+  
+  }
+  
 }
+
