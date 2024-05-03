@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BarraAdminLocalComponent } from '../barra-admin-local/barra-admin-local.component';
+import { CedulaServiceService } from '../servicios/cedula-service.service';
 
 @Component({
   selector: 'app-invitado-buscar',
@@ -9,7 +10,16 @@ import { BarraAdminLocalComponent } from '../barra-admin-local/barra-admin-local
   templateUrl: './invitado-buscar.component.html',
   styleUrl: './invitado-buscar.component.css'
 })
-export class InvitadoBuscarComponent {
+export class InvitadoBuscarComponent implements OnInit{
+
+  constructor(private cedulaService: CedulaServiceService) { }
+
+  ngOnInit(): void {
+    const cedula = '123'; // Supongamos que tienes la cédula aquí
+    console.log('Enviando cédula:', cedula);
+    this.cedulaService.enviarCedula(cedula);
+  }
+
   user = {
     cedula: '123',
     nombre: 'Carlos',
@@ -23,4 +33,5 @@ export class InvitadoBuscarComponent {
     puerta2: false,
     puerta3: true
   };
+
 }

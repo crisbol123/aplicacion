@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="d-flex justify-content-center">
+                @for (luz of luces; track luz) {
+                <div class="card" style="width: 18rem; margin-right: 10px;">
+                    @if (luz.estado==1) {
+                    <img src="assets/bomibllo_encendido.jpeg" class="card-img-top" alt="...">
+                    }@else{
+                    <img src="assets/bombillo_apagado.png"class="card-img-top" alt="...">
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-weight: bold; font-size: 24px;">Bombillo {{luz.id_bombillo}}</h5>
+                        <button mat-flat-button color="primary" (click)="cambiarEstado(luz)">Encender/Apagar</button>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
