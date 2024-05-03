@@ -17,6 +17,8 @@ export class SolicitudesPhpLuzService {
   getRequest() {
     return this.http.get<any>('http://localhost:8081/luces/recibirEstado');
   }
+
+  
 }
 
 
