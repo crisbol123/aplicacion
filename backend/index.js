@@ -1,5 +1,3 @@
-
-
 var cors = require('cors');
 const express = require('express');
 const lucesR= require("./routes/luces")
@@ -8,6 +6,7 @@ const modo1 = require("./routes/modo1")
 const invitadoC = require("./routes/invitado-crear")
 const crud=require("./routes/crud-global")
 const app = express();
+
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
