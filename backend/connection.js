@@ -2,10 +2,10 @@ const mysql = require('mysql2/promise');
 
  
 const pool = mysql.createPool(
-    {host: 'localhost',
-user: 'root',
-password: 'root',
-database: 'prueba2',
+{host: 'localhost',
+user: 'admin',
+password: '12345',
+database: 'smart home',
 waitForConnections: true,
 connectionLimit: 10,
 queueLimit: 0,}
