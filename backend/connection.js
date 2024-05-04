@@ -5,7 +5,7 @@ const pool = mysql.createPool(
 {host: 'localhost',
 user: 'admin',
 password: '12345',
-database: 'smart_home',
+database: 'smart home',
 waitForConnections: true,
 connectionLimit: 10,
 queueLimit: 0,}

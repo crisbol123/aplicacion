@@ -12,30 +12,24 @@ router.post('/crear-admin-local', async (req, res)=>{
         
         query="select cedula, nombre, contraseña, numero, correo from local where cedula=?";
         
-        connection.query(query,[admin.cedula],(err, results)=>{
-        console.log('aslmlkadlknsadlk');
-          if(!err){
-            if(results==""){
-              query="insert into local(cedula, nombre, contraseña, numero, correo) value (?,?,?,?,?)";            
-              let rta= connection.query(query,[admin.cedula,admin.nombre,admin.contraseña,admin.numero,admin.correo],(err,results)=>{
-                  if(!err){
-                      return res.status(200).json({message:"Successfully registered."},results,rta);
-                  }else{
-                      return res.status(500).json(err,results,rta);
-                  }
-              })
-            }else{
-              return res.status(400).json({message:"ID already exist"});
-              
-            }            
-          }else{
-            return res.status(500).json(err);
-          }  
-
-        })
-   
         
-      connection.release();
+        query="select cedula, nombre, contraseña, numero, correo from local where cedula=?";
+              //query="insert into local(cedula, nombre, contraseña, numero, correo) value (?,?,?,?,?)";            
+        let rta= await connection.query(query,[admin.cedula]);    
+        console.log(rta[0]);
+        if(rta[0].length>0){
+          return res.status(200).json({message:"Cedula ya registrada"});
+        }
+        query="insert into local(cedula, nombre, contraseña, numero, correo) value (?,?,?,?,?)"; 
+        rta= await connection.query(query,[admin.cedula,admin.nombre,admin.contraseña,admin.numero,admin.correo]);
+        
+
+        res.status(200).json({message:"Successfully registered."});
+              
+              
+      // Liberar la conexión a la base de datos
+      connection.release();  
+      
     } catch (error) {
       console.error('Error connecting to the MySQL server:', error);
     }
