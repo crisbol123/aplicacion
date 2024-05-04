@@ -10,12 +10,16 @@ export class CrudGlobalService {
   constructor(private http: HttpClient) { }
 
 
-  postRequest(data: any) {
-    return this.http.post('http://localhost:8081/alarma/actualizarEstadoAlarma', data);
+  crear(data: any) {
+    return this.http.post('http://localhost:8081/crud-global/crear-admin-local', data);
   }
-
-  
-  getRequest() {
-    return this.http.get<any>('http://localhost:8081/alarma/recibirEstadoAlarma');
+  actualizar(data: any) {
+    return this.http.post('http://localhost:8081/crud-global/actualizar', data);
+  }
+  eliminar(data: any) {
+    return this.http.post('http://localhost:8081/crud-global/eliminar', data);
+  }
+  buscar() {
+    return this.http.get<any>('http://localhost:8081/crud-global/buscar');
   }
 }
