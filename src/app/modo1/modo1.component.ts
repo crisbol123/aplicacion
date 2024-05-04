@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiciosService } from '../servicios/servicios.service';
+import { ServiciosService } from '../servicios/servicio-modo1/servicios.service';
 import { BarraAdminLocalComponent } from '../barra-admin-local/barra-admin-local.component';
 
 @Component({
@@ -24,7 +24,7 @@ export class Modo1Component implements OnInit {
   getData(): void {
     this.service.getRequest().subscribe(
       (data) => {
-        this.respuesta = data.ultimoValor;
+        this.respuesta = data.value;
         this.actualizarTextoBoton();
       },
       (error) => {

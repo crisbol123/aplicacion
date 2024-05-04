@@ -41,7 +41,7 @@ router.post('/post', async (req, res) => {
 
         const query2 = `INSERT INTO smart_home.invitado (${columns.join(', ')}) VALUES (${Array(columns.length).fill('?').join(', ')})`;
         const [results, fields2] = await connection.query(query2, values);
-        res.json({ respuesta: "Mensaje insertado correctamente en la base de datos" });
+        res.json({ respuesta: "Mensaje insertado correctamente en la base de datos" })
 
         // Liberar la conexión a la base de datos
         connection.release();
