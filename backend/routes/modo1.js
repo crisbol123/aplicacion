@@ -13,16 +13,16 @@ const router = express.Router();
               const connection = await pool.getConnection();
       
               // Obtener el estado del cuerpo de la solicitud
-              const estado = req.body.estado;
-              console.log(estado);
+              const estado = req.body;
+              //console.log("Motherfucker: ",estado);
       
               if (estado == undefined) {
                   res.status(400).json({ error: "El mensaje no puede estar vacío" });
                   return;
               }
-
+              //console.log("Hello motherfucker");
               // Realizar la actualización en la base de datos
-              const [results, fields] = await connection.query("UPDATE hogar SET estadohogar = ? WHERE id = 1", [estado]);
+              const [results, fields] = await connection.query("UPDATE modos SET estadohogar = ? WHERE id = 1", [estado.estado]);
               console.log("Mensaje actualizado correctamente en la base de datos");
       
               res.json({ estado: "Mensaje insertado correctamente en la base de datos" });
@@ -35,14 +35,15 @@ const router = express.Router();
               }
           }
       });
-     
+
         router.get('/get', async (req, res) => {
             try {
-                const [rows, fields] = await connection.query("SELECT estadohogar FROM hogar");
+                const [rows, fields] = await connection.query("SELECT estadohogar FROM modos");
                 console.log('Conexión exitosa con la base de datos');
                 if (rows.length > 0) {
-                    const ultimoValor = rows[0].estadohogar; // Suponiendo que "estadohogar" es el nombre de la columna que deseas obtener
-                    res.json({ ultimoValor: ultimoValor });
+                    const value = rows[0].estadohogar; // Suponiendo que "estadohogar" es el nombre de la columna que deseas obtener
+                    //console.log(value);
+                    res.json({ value: value });
                 } else {
                     res.json({ mensaje: 'No se encontraron resultados' });
                 }

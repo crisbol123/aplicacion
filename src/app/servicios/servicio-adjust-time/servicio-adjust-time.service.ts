@@ -1,13 +1,13 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PuertasService {
-  
-  private backendUrl = 'http://localhost:8081/modo1/get'; // URL del backend
+export class ServicioAdjustTimeService {
+
+  private backendUrl = 'http://localhost:8081/adjust-time/get'; // URL del backend
 
   constructor(private http: HttpClient) {}
 
@@ -16,6 +16,6 @@ export class PuertasService {
   }
 
   postRequest(data: any): Observable<any>{
-    return this.http.post('http://localhost:8081/modo1/post', data);
+    return this.http.post('http://localhost:8081/adjust-time/post', data);
   }
 }
