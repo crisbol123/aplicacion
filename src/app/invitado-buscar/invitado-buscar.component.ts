@@ -2,6 +2,7 @@ import { Component, Input, OnInit, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BarraAdminLocalComponent } from '../barra-admin-local/barra-admin-local.component';
 import { CedulaServiceService } from '../servicios/cedula-service.service';
+import { BuscarInvitadoService } from '../servicios/servicio-invitado-buscar/buscar-invitado.service';
 
 @Component({
   selector: 'app-invitado-buscar',
@@ -12,26 +13,24 @@ import { CedulaServiceService } from '../servicios/cedula-service.service';
 })
 export class InvitadoBuscarComponent implements OnInit{
 
-  constructor(private cedulaService: CedulaServiceService) { }
+  users: any[] = []; // Inicializar como arreglo vacío
+
+  constructor(private service: BuscarInvitadoService) { }
 
   ngOnInit(): void {
-    const cedula = '123'; // Supongamos que tienes la cédula aquí
-    console.log('Enviando cédula:', cedula);
-    this.cedulaService.enviarCedula(cedula);
+    this.getData();
   }
 
-  user = {
-    cedula: '123',
-    nombre: 'Carlos',
-    contrasena: 'asdjkakjsd',
-    numero: '312135',
-    correo: 'asda@aisjd.com',
-    luces: false,
-    alarma: false,
-    temperatura: false,
-    puerta1: false,
-    puerta2: false,
-    puerta3: true
-  };
+  getData(): void {
+    this.service.getRequest().subscribe(
+      (data: any) => {
+        this.users = data.value; // Asignar el arreglo de objetos a users
+      },
+      (error) => {
+        console.error('Error al obtener datos:', error);
+      }
+    );
+  }
+  
 
 }

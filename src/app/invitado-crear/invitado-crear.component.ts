@@ -2,7 +2,7 @@ import { Component,ViewChild } from '@angular/core';
 import { FormsModule ,NgForm} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BarraAdminLocalComponent } from '../barra-admin-local/barra-admin-local.component';
-import { CrearInvitadoService } from '../servicios/crear-invitado.service';
+import { CrearInvitadoService } from '../servicios/servicio-invitado-crear/crear-invitado.service';
 
 @Component({
   selector: 'app-invitado-crear',
@@ -13,6 +13,9 @@ import { CrearInvitadoService } from '../servicios/crear-invitado.service';
 })
 export class InvitadoCrearComponent {
 
+  mensaje: string = "";
+  cedulaRegistrada: boolean = false;
+
   constructor(private service: CrearInvitadoService) {}
   
   user = {
@@ -20,7 +23,9 @@ export class InvitadoCrearComponent {
     cedula: '',
     contrasena: '',
     correo: '',
-    luces: 0,
+    luz1: 0,
+    luz2: 0,
+    luz3: 0,
     nombre: '',
     numero: '',
     puerta1: 0,
@@ -50,10 +55,15 @@ export class InvitadoCrearComponent {
     const datos = { estado: this.user };
 
     this.service.postRequest(datos).subscribe(
-      () => {
+      (response) => {
+        this.mensaje = response.respuesta || this.mensaje;
+        console.log(this.mensaje);
       },
       (error) => {
-        console.log('Error al enviar datos:', error);
+        //console.log('Error al enviar datos:', error);
+        this.mensaje = error.error.message;
+        console.log(this.mensaje);
+        this.cedulaRegistrada = true;
       }
     );
   }
