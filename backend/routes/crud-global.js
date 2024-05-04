@@ -28,16 +28,13 @@ const router = express.Router();
               
               
       // Liberar la conexión a la base de datos
-      connection.release();  
+      connection.release(); 
+      }); 
       
     } catch (error) {
       console.error('Error connecting to the MySQL server:', error);
     }
   });
-
- 
-
-
 
 
   module.exports = router;

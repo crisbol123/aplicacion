@@ -7,6 +7,7 @@ const invitadoC = require("./routes/invitado-crear")
 const crud=require("./routes/crud-global")
 const adjust_time = require("./routes/adjust-time")
 const puertas = require("./routes/puertas")
+const invitadoB = require("./routes/invitado-buscar")
 const app = express();
 
 app.use(cors());
@@ -19,4 +20,5 @@ app.use("/invitado-crear",invitadoC);
 app.use("/crud-global",crud)
 app.use("/adjust-time",adjust_time)
 app.use("/puertas",puertas)
+app.use("/invitado-buscar",invitadoB)
 module.exports = app;
