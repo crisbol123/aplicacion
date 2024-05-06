@@ -12,7 +12,7 @@ const router = express.Router();
             try {
                 const [rows, fields] = await connection.query("SELECT * FROM invitado");
                 console.log('Conexión exitosa con la base de datos');
-                console.log("Datos de la base de datos: ",rows);
+                //console.log("Datos de la base de datos: ",rows);
                 if (rows.length > 0) {
                     //const value = rows[0].estadohogar; // Suponiendo que "estadohogar" es el nombre de la columna que deseas obtener
                     //console.log(value);
