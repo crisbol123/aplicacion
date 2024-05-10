@@ -5,6 +5,16 @@ body {
     padding: 0;
 }
 
+.contenedor {
+    text-align: center; /* Centra horizontalmente el contenido */
+    max-width: 600px; /* Establece un ancho máximo para el contenedor */
+    margin: 50px auto; /* Centra el contenedor horizontalmente y agrega espacio superior e inferior */
+    padding: 20px; /* Añade relleno al contenedor */
+    background-color: #fff; /* Color de fondo del contenedor */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
 .alarm-container {
     max-width: 600px;
     margin: 50px auto;
@@ -12,10 +22,16 @@ body {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex; /* Utilizamos flexbox para centrar verticalmente */
+    flex-direction: column; /* Alineamos el contenido en columna */
+    justify-content: center; /* Centramos verticalmente el contenido */
+    align-items: center; /* Centramos horizontalmente el contenido */
 }
 
 h2 {
-    color: #d5d2d2;
+    color: #007bff; /* Cambia el color del título */
+    font-size: 24px; /* Tamaño de fuente del título */
+    margin-bottom: 20px; /* Espacio inferior */
 }
 
 .status {
@@ -23,7 +39,8 @@ h2 {
 }
 
 .status p {
-    margin: 5px 0;
+    margin: 10px 0; /* Aumenta el espacio entre los párrafos */
+    font-size: 16px; /* Tamaño de fuente del texto */
 }
 
 button {
@@ -33,6 +50,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
 }
 
 button:hover {
@@ -44,5 +62,8 @@ button:hover {
     .alarm-container {
         margin: 20px;
         padding: 10px;
+    }
+    h2 {
+        font-size: 20px; /* Reducir el tamaño de fuente del título en dispositivos móviles */
     }
 }

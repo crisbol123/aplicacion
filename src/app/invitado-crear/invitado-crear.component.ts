@@ -13,6 +13,7 @@ import { CrearInvitadoService } from '../servicios/servicio-invitado-crear/crear
 })
 export class InvitadoCrearComponent {
 
+  mensaje: string = "";
   cedulaRegistrada: boolean = false;
 
   constructor(private service: CrearInvitadoService) {}
@@ -41,7 +42,7 @@ export class InvitadoCrearComponent {
     // Aquí puedes manejar la lógica para enviar los datos del formulario
     if (this.registerForm.valid) {
       // Si el formulario es válido, puedes continuar con el envío de datos o cualquier otra acción
-      console.log(this.user);
+      //console.log(this.user);
       this.postData();
     } else {
       // Si el formulario no es válido, no hagas nada o muestra un mensaje de error
@@ -60,7 +61,10 @@ export class InvitadoCrearComponent {
       },
       (error) => {
         //console.log('Error al enviar datos:', error);
-        console.log(error.error.message);
+        //Comprobare cuando el error que devuelve es unicamente porque la cedula ya esta registrada
+        //Aqui manda el error de la cedula ya esta registrada siempre que hay un error al postear en general
+        this.mensaje = error.error.message;
+        console.log(this.mensaje);
         this.cedulaRegistrada = true;
       }
     );

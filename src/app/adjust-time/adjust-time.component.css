@@ -1,8 +1,13 @@
+
 .sliders-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  text-align: center; /* Centra horizontalmente el contenido */
+  max-width: 600px; /* Establece un ancho máximo para el contenedor */
+  margin: 50px auto; /* Centra el contenedor horizontalmente y agrega espacio superior e inferior */
+  padding: 20px; /* Añade relleno al contenedor */
+  background-color: #fff; /* Color de fondo del contenedor */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
   
   .slider-container {
     margin-bottom: 20px;

@@ -1,0 +1,38 @@
+.puertas-componente {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.puerta {
+  margin: 0 10px;
+  text-align: center;
+  border: 1px solid #8f9295; /* Agrega un borde alrededor de cada puerta */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno */
+}
+
+.puerta img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.puerta p {
+  font-size: 16px; /* Tamaño de fuente más grande */
+  font-weight: bold; /* Texto en negrita */
+}
+
+.puerta button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.puerta button:hover {
+  background-color: #0056b3;
+}
