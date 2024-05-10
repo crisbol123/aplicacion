@@ -17,7 +17,7 @@ const router = express.Router();
           let rta= await connection.query(query,[admin.cedula]);    
           console.log(rta[0]);
           if(rta[0].length>0){
-            res.status(200).send({message:"Cedula ya registrada"});
+            res.status(400).send({message:"Cedula ya registrada"});
           }else{
             query="insert into local(cedula, nombre, contraseña, numero, correo) value (?,?,?,?,?)"; 
             rta= await connection.query(query,[admin.cedula,admin.nombre,admin.contraseña,admin.numero,admin.correo]);

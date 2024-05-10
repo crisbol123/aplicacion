@@ -13,7 +13,6 @@ import { CrearInvitadoService } from '../servicios/servicio-invitado-crear/crear
 })
 export class InvitadoCrearComponent {
 
-  mensaje: string = "";
   cedulaRegistrada: boolean = false;
 
   constructor(private service: CrearInvitadoService) {}
@@ -61,8 +60,7 @@ export class InvitadoCrearComponent {
       },
       (error) => {
         //console.log('Error al enviar datos:', error);
-        this.mensaje = error.error.message;
-        console.log(this.mensaje);
+        console.log(error.error.message);
         this.cedulaRegistrada = true;
       }
     );
