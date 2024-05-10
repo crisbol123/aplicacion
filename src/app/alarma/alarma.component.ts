@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 export class AlarmaComponent {
 source='';
 
-  alarma: Alarma = { estado: null, fecha_estado: null };
+  alarma: Alarma = { estado_alarma: null };
 
   constructor(private service: SolicitudesAlarmaService) {
    
@@ -21,11 +21,11 @@ source='';
   apagarAlarma(alarmaa:Alarma){
     
     console.log(alarmaa);
-    if(alarmaa.estado== 1){ 
-      alarmaa.estado=0;
+    if(alarmaa.estado_alarma== 1){ 
+      alarmaa.estado_alarma=0;
 
     }
-    const data = { estado: alarmaa.estado}; // Datos que quieres enviar en la solicitud
+    const data = { estado: alarmaa.estado_alarma}; // Datos que quieres enviar en la solicitud
     this.service.postRequest(data).subscribe(response => {
     console.log(response);
 });
@@ -38,9 +38,11 @@ ngOnInit(): void {
   this.service.getRequest().subscribe(data => {
    
     this.alarma= data;
-    
-    console.log( data); 
-    console.log(this.alarma); 
+    console.log(this.alarma);
+    console.log(data);
+ 
+   
+
     
 
 });
@@ -53,6 +55,6 @@ ngOnInit(): void {
 }
 
 export class Alarma{
-  estado: any;
-  fecha_estado:any;
+estado_alarma: any;
+
 }

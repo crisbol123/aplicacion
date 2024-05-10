@@ -8,17 +8,18 @@ const router = express.Router();
       const connection = await pool.getConnection();
       console.log('Connected to the MySQL server.');
    
-      router.post('/actualizarEstado', async (req, res)=>{
+      router.post('/actualizarEstado', async (req, res) => {
         let luces = req.body;
-        query = "insert into sensor(estado,id_bombillo) value (?,?)";
-        let rta = await connection.query(query, [luces.estado,luces.id_bombillo]);
+        query = "UPDATE luces SET estadoluces = ? WHERE id_bombillo = ?";
+        let rta = await connection.query(query, [luces.estado, luces.id_bombillo]);
         console.log(rta);
-        res.status(200).send({message:"okay",idInsert:rta[0].insertId});
-        })
+        res.status(200).send({ message: "okay", idInsert: rta[0].insertId });
+    })
+    
    
         router.get('/recibirEstado', async (req, res)=>{
           let alarma =req.query;
-          query = "select t1.id_bombillo, t1.fecha_estado, t1.estado FROM sensor t1 INNER JOIN (SELECT id_bombillo, MAX(id) AS max_id FROM sensor GROUP BY id_bombillo) t2 ON t1.id_bombillo = t2.id_bombillo AND t1.id = t2.max_id ORDER BY t1.id_bombillo";
+          query = "select t1.id_bombillo,  t1.estadoluces FROM luces t1 INNER JOIN (SELECT id_bombillo, MAX(id) AS max_id FROM luces GROUP BY id_bombillo) t2 ON t1.id_bombillo = t2.id_bombillo AND t1.id = t2.max_id ORDER BY t1.id_bombillo";
           let rta = await connection.query(query, [alarma.id]);
           console.log(rta[0]);
           let data_rta =arreglarData(rta[0]);

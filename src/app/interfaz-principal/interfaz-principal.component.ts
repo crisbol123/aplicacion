@@ -20,8 +20,7 @@ export class InterfazPrincipalComponent {
 mostrarComponente:boolean = false;
 mostrarComponente2:boolean = false;
 mostrarComponente3:boolean = false;
-
-
+mostrarComponente4:boolean = false;
 cambiarVisibilidad(){
 
   this.mostrarComponente=!this.mostrarComponente;
@@ -31,10 +30,12 @@ cambiarVisibilidad2(){
 
   this.mostrarComponente2=!this.mostrarComponente2;
 }
-
 cambiarVisibilidad3(){
 
   this.mostrarComponente3=!this.mostrarComponente3;
 }
+cambiarVisibilidad4(){
 
+  this.mostrarComponente4=!this.mostrarComponente4;
+}
 }
