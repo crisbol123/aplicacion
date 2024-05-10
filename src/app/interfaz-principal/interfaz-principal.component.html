@@ -26,4 +26,26 @@
   </div>
 
 
-  
+  <div class="my-container3 d-flex justify-content-center align-items-center mt-3" id="container3">
+    <h2 class="text-center mr-2">Temperatura</h2>
+    <button mat-icon-button color="accent" (click)="cambiarVisibilidad3()" aria-label="Example icon button with a menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <div class="mt-3" *ngIf="mostrarComponente2">
+    
+    <app-alarma></app-alarma>
+  </div>
+
+  <div class="my-container4 d-flex justify-content-center align-items-center mt-3" id="container4">
+    <h2 class="text-center mr-2">Puertas</h2>
+    <button mat-icon-button color="accent" (click)="cambiarVisibilidad4()" aria-label="Example icon button with a menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <div class="mt-3" *ngIf="mostrarComponente2">
+    
+    <app-alarma></app-alarma>
+  </div>

@@ -6,7 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class SolicitudesPhpLuzService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+
+    this.getRequest();
+    // Llama a loadData() cada 5 segundos
+    setInterval(() => this.getRequest(), 5000);
+   }
 
 
   postRequest(data: any) {
