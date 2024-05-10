@@ -26,8 +26,8 @@ export class LucesComponent implements OnInit {
   cambiarEstado(luzo:Luz){
     
       console.log(luzo);
-      luzo.estado=!luzo.estado;
-      const data = { estado: luzo.estado, id_bombillo: luzo.id_bombillo }; // Datos que quieres enviar en la solicitud
+      luzo.estadoluces=!luzo.estadoluces;
+      const data = { estado: luzo.estadoluces, id_bombillo: luzo.id_bombillo }; // Datos que quieres enviar en la solicitud
       this.service.postRequest(data).subscribe(response => {
       console.log(response);
   });
@@ -46,7 +46,7 @@ ngOnInit(): void {
 
 export class Luz{
   id_bombillo:any;
-  estado: any;
+  estadoluces: any;
   fecha_estado:any;
 }
 

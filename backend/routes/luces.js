@@ -34,7 +34,7 @@ const router = express.Router();
   function arreglarData(data){
     let retorno = [];
     data.forEach(element => {
-      retorno.push({id_bombillo: element.id_bombillo, fecha_estado: element.fecha_estado, estado: element.estado});
+      retorno.push({id_bombillo: element.id_bombillo, tiempoactivado: element.tiempoactivado, estadoluces: element.estadoluces});
     });
 return retorno;
   }
