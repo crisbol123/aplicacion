@@ -1,1 +1,141 @@
 <app-barra-admin-local></app-barra-admin-local>
+<h2 class="text-center">Actualizar Administrador Local</h2>
+
+<div class="container">
+  
+  <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="mt-4">
+    <!-- Campo para Cédula -->
+    <div class="mb-3">
+      <label for="cedula" class="form-label">Cédula:</label>
+      <input 
+        type="number" 
+        class="form-control" 
+        id="cedula" 
+        name="cedula" 
+        pattern="^[1-9]\d*$"
+        [(ngModel)]="user.cedula" 
+        #cedula="ngModel"
+        required>
+      <div *ngIf="(formSubmitted && cedula.invalid) || (cedula.invalid && (cedula.dirty || cedula.touched))" class="text-danger">
+        <div *ngIf="cedula.errors?.['required']">Cédula es requerida.</div>
+        <div *ngIf="cedula.errors?.['pattern']">Ingrese una cédula valida</div>
+      </div>
+    </div>
+
+    <!-- Campo para Nombre -->
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre:</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="nombre" 
+        name="nombre" 
+        [(ngModel)]="user.nombre" 
+        #nombre="ngModel"
+        required>
+      <div *ngIf="(formSubmitted && nombre.invalid) || (nombre.invalid && (nombre.dirty || nombre.touched))" class="text-danger">
+        <div *ngIf="nombre.errors?.['required']">Nombre es requerido.</div>
+      </div>
+    </div>
+
+    <!-- Campo para Contraseña -->
+    <div class="mb-3">
+      <label for="contrasena" class="form-label">Contraseña:</label>
+      <input 
+        type="password" 
+        class="form-control" 
+        id="contrasena" 
+        name="contrasena" 
+        [(ngModel)]="user.contrasena" 
+        required
+        minlength="8"
+        maxlength="12"
+        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,12}$"
+        #contrasena="ngModel">
+      <div *ngIf="(formSubmitted && contrasena.invalid) || (contrasena.invalid && (contrasena.dirty || contrasena.touched))" class="text-danger">
+        <div *ngIf="contrasena.errors?.['required']">Contraseña es requerida.</div>
+        <div *ngIf="contrasena.errors?.['minlength']">La contraseña debe tener al menos 8 caracteres.</div>
+        <div *ngIf="contrasena.errors?.['maxlength']">La contraseña no debe tener más de 12 caracteres.</div>
+        <div *ngIf="contrasena.errors?.['pattern']">La contraseña debe tener al menos un número, una mayúscula, una minúscula y un carácter especial.</div>
+      </div>
+    </div>
+
+    <!-- Campo para Número -->
+    <div class="mb-3">
+      <label for="numero" class="form-label">Número de contacto:</label>
+      <input 
+        type="number" 
+        class="form-control" 
+        id="numero" 
+        name="numero" 
+        pattern="^[1-9]\d*$"
+        [(ngModel)]="user.numero" 
+        #numero="ngModel"
+        required>
+      <div *ngIf="(formSubmitted && numero.invalid) || (numero.invalid && (numero.dirty || numero.touched))" class="text-danger">
+        <div *ngIf="numero.errors?.['required']">Número es requerido.</div>
+        <div *ngIf="numero.errors?.['pattern']">Ingrese una numero telefonico valido</div>
+      </div>
+    </div>
+
+    <!-- Campo para Correo -->
+    <div class="mb-3">
+      <label for="correo" class="form-label">Correo:</label>
+      <input 
+        type="email" 
+        class="form-control" 
+        id="correo" 
+        name="correo" 
+        [(ngModel)]="user.correo" 
+        #correo="ngModel"
+        required>
+      <div *ngIf="(formSubmitted && correo.invalid) || (correo.invalid && (correo.dirty || correo.touched))" class="text-danger">
+        <div *ngIf="correo.errors?.['required']">Correo es requerido.</div>
+        <div *ngIf="correo.errors?.['email']">Correo electrónico no válido.</div>
+      </div>
+    </div>
+
+    <div>
+        <h4>Accesos del hogar</h4>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" id="cbox1" name="luces" [(ngModel)]="user.luz1" /> 
+            Luz1
+        </label>
+        <label>
+          <input type="checkbox" id="cbox2" name="luces" [(ngModel)]="user.luz2" /> 
+          Luz2
+      </label>
+      <label>
+        <input type="checkbox" id="cbox3" name="luces" [(ngModel)]="user.luz3" /> 
+        Luz3
+      </label>
+        <label>
+            <input type="checkbox" id="cbox4" name="alarma" [(ngModel)]="user.alarma" /> 
+            Alarma
+        </label>
+        <label>
+            <input type="checkbox" id="cbox5" name="temperatura" [(ngModel)]="user.temperatura" /> 
+            Temperatura
+        </label>
+        <label>
+            <input type="checkbox" id="cbox6" name="puerta1" [(ngModel)]="user.puerta1" /> 
+            Puerta1
+        </label>
+        <label>
+            <input type="checkbox" id="cbox7" name="puerta2" [(ngModel)]="user.puerta2" /> 
+            Puerta2
+        </label>
+        <label>
+            <input type="checkbox" id="cbox8" name="puerta3" [(ngModel)]="user.puerta3" /> 
+            Puerta3
+        </label>
+    </div>
+
+    <!-- Botón de Registrar -->
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary">Actualizar</button>
+    </div>
+  </form>
+</div>

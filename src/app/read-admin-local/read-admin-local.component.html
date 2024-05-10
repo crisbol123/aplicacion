@@ -13,44 +13,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>{{ user.cedula }}</td>
-          <td>{{ user.nombre }}</td>
-          <td>{{ user.numero }}</td>
-          <td>{{ user.correo }}</td>
+        <!--<tr class="fila" (click)="logout()" style="cursor: pointer" >-->
+        <tr *ngFor="let local of locales">  
+          <td>{{ local.cedula }}</td>
+          <td>{{ local.nombre }}</td>
+          <td>{{ local.numero }}</td>
+          <td>{{ local.correo }}</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-<!--
-  <table class="table-primary table-striped table table-bordered border-primary">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Cédula</th>
-        <th scope="col">Número</th>
-        <th scope="col">Correo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>as</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>adsd</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td >Larry the Bird</td>
-        <td>adsd</td>
-      </tr>
-    </tbody>
-  </table>-->

@@ -34,3 +34,11 @@
     margin-top: 3rem !important;
   }
   
+  .fila {
+    background-color: blue; /* Color por defecto */
+    transition: background-color 0.3s ease; /* Transición suave */
+  }
+  
+  .fila:hover {
+    background-color: red; /* Color cuando el mouse está encima */
+  }
