@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { SolicitudesAlarmaService } from '../solicitudes-alarma.service';
 import { CommonModule } from '@angular/common';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { tap, switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-alarma',
   standalone: true,
@@ -34,16 +38,9 @@ source='';
 
 ngOnInit(): void {
   
-
-  this.service.getRequest().subscribe(data => {
+    this.service.getalarmState().subscribe((state) => {
+      this.alarma.estado_alarma = state;
    
-    this.alarma= data;
-    console.log(this.alarma);
-    console.log(data);
- 
-   
-
-    
 
 });
 

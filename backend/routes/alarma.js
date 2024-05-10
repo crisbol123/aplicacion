@@ -20,7 +20,7 @@ const router = express.Router();
           let alarma =req.query;
           query = "SELECT estado_alarma FROM alarma WHERE id = 1";
           let rta = await connection.query(query, [alarma.id]);
-          console.log(rta);
+          console.log(rta[0][0].estado_alarma);
           res.status(200).send(rta[0][0]);
           })
       connection.release();
