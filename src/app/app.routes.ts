@@ -6,7 +6,6 @@ import { DeleteAdminLocalComponent } from './delete-admin-local/delete-admin-loc
 import { InterfazPrincipalComponent } from './interfaz-principal/interfaz-principal.component';
 import { LucesComponent } from './luces/luces.component';
 import { AlarmaComponent } from './alarma/alarma.component';
-import { OpcionesAvanzadasComponent } from './opciones-avanzadas/opciones-avanzadas.component';
 import { LoginComponent } from './login/login.component';
 import { CRUDAdminGlobalComponent } from './crud-admin-global/crud-admin-global.component';
 import { BarraAdminLocalComponent } from './barra-admin-local/barra-admin-local.component';
@@ -19,6 +18,7 @@ import { InvitadoEliminarComponent } from './invitado-eliminar/invitado-eliminar
 import { Modo1Component } from './modo1/modo1.component';
 import { Modo2Component } from './modo2/modo2.component';
 import { AdjustTimeComponent } from './adjust-time/adjust-time.component';
+import { PuertasComponent } from './puertas/puertas.component';
 export const routes: Routes = [
 
   { path: 'crear-admin-local', component: CrearAdminLocalComponent },
@@ -29,7 +29,6 @@ export const routes: Routes = [
   { path: 'interfaz-principal', component: InterfazPrincipalComponent },
   { path: 'luces', component: LucesComponent },
   { path: 'alarma', component: AlarmaComponent },
-  { path: 'opciones-avanzadas',component: OpcionesAvanzadasComponent},
   { path:'login',component:LoginComponent},
   { path:'',component:LoginComponent},
   {path :'Admin-Global',component:CRUDAdminGlobalComponent},
@@ -40,7 +39,8 @@ export const routes: Routes = [
   {path: 'invitado-eliminar',component: InvitadoEliminarComponent},
   {path: 'modo1',component: Modo1Component},
   {path: 'modo2',component: Modo2Component},
-  {path: 'adjust-time',component: AdjustTimeComponent}
+  {path: 'adjust-time',component: AdjustTimeComponent},
+  {path: 'puertas',component:PuertasComponent}
 ];
 
 

@@ -1,1 +1,17 @@
 <app-barra-admin-local></app-barra-admin-local>
+
+<div class="sliders-container">
+    <div class="slider-container">
+      <label for="subida">Tiempo de Subida:</label>
+      <input type="range" id="subida" min="1" max="10" step="1" [(ngModel)]="subidaValue" />
+      <span>{{ subidaValue }} ms</span>
+    </div>
+    <div class="slider-container">
+      <label for="bajada">Tiempo de Bajada:</label>
+      <input type="range" id="bajada" min="1" max="10" step="1" [(ngModel)]="bajadaValue" />
+      <span>{{ bajadaValue }} ms</span>
+    </div>
+    <button (click)="ajustarValores()">Ajustar</button>
+  </div>
+  
+  

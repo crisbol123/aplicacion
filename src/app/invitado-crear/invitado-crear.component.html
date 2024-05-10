@@ -20,6 +20,11 @@
         <div *ngIf="cedula.errors?.['pattern']">Ingrese una cédula valida</div>
       </div>
     </div>
+    <!-- Aquí se mostrará la alerta si la cédula ya está registrada -->
+    <div *ngIf="cedulaRegistrada" class="alert alert-dismissible alert-danger">
+    <button type="button" class="btn-close" aria-label="Close" (click)="cedulaRegistrada = false"></button>
+        La cédula ya está registrada.
+    </div>
 
     <!-- Campo para Nombre -->
     <div class="mb-3">
@@ -98,27 +103,35 @@
     </div>
     <div>
         <label>
-            <input type="checkbox" id="cbox1" name="luces" [(ngModel)]="user.luces" /> 
-            Luces
+            <input type="checkbox" id="cbox1" name="luces" [(ngModel)]="user.luz1" /> 
+            Luz1
         </label>
         <label>
-            <input type="checkbox" id="cbox2" name="alarma" [(ngModel)]="user.alarma" /> 
+          <input type="checkbox" id="cbox2" name="luces" [(ngModel)]="user.luz2" /> 
+          Luz2
+      </label>
+      <label>
+        <input type="checkbox" id="cbox3" name="luces" [(ngModel)]="user.luz3" /> 
+        Luz3
+      </label>
+        <label>
+            <input type="checkbox" id="cbox4" name="alarma" [(ngModel)]="user.alarma" /> 
             Alarma
         </label>
         <label>
-            <input type="checkbox" id="cbox3" name="temperatura" [(ngModel)]="user.temperatura" /> 
+            <input type="checkbox" id="cbox5" name="temperatura" [(ngModel)]="user.temperatura" /> 
             Temperatura
         </label>
         <label>
-            <input type="checkbox" id="cbox4" name="puerta1" [(ngModel)]="user.puerta1" /> 
+            <input type="checkbox" id="cbox6" name="puerta1" [(ngModel)]="user.puerta1" /> 
             Puerta1
         </label>
         <label>
-            <input type="checkbox" id="cbox5" name="puerta2" [(ngModel)]="user.puerta2" /> 
+            <input type="checkbox" id="cbox7" name="puerta2" [(ngModel)]="user.puerta2" /> 
             Puerta2
         </label>
         <label>
-            <input type="checkbox" id="cbox6" name="puerta3" [(ngModel)]="user.puerta3" /> 
+            <input type="checkbox" id="cbox8" name="puerta3" [(ngModel)]="user.puerta3" /> 
             Puerta3
         </label>
     </div>

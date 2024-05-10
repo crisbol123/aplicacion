@@ -2,13 +2,13 @@ const mysql = require('mysql2/promise');
 
  
 const pool = mysql.createPool(
-    {host: 'localhost',
+{host: 'localhost',
 user: 'root',
 password: 'root',
-database: 'prueba2',
+database: 'smart_home',
 waitForConnections: true,
 connectionLimit: 10,
 queueLimit: 0,}
 );
- 
+
 module.exports = pool;
