@@ -25,28 +25,11 @@
 
 .my-container3 {
   display: inline-block; /* Mostrar como bloque en línea para que el color de fondo se ajuste al contenido */
-<<<<<<< HEAD
-  background-color: rgb(14, 46, 209); /* Cambia "lightblue" por el color que prefieras */
-  padding: 10px; /* Añade un poco de espacio alrededor de los elementos */
-}
-#container3 h2 {
-  margin-right: 10px; /* Ajusta el valor según tu preferencia para separar el título del botón */
-  margin-top: 15px;
-}
-
-.my-container4 {
-  display: inline-block; /* Mostrar como bloque en línea para que el color de fondo se ajuste al contenido */
-  background-color: rgb(21, 215, 73); /* Cambia "lightblue" por el color que prefieras */
-  padding: 10px; /* Añade un poco de espacio alrededor de los elementos */
-}
-#container4 h2 {
-=======
   background-color: rgb(18, 169, 219); /* Cambia "lightblue" por el color que prefieras */
   padding: 10px; /* Añade un poco de espacio alrededor de los elementos */
 }
 
 #container2 h2 {
->>>>>>> fa15f9cc4e515e71b19dfe7b3b4377e7be0a5bb3
   margin-right: 10px; /* Ajusta el valor según tu preferencia para separar el título del botón */
   margin-top: 15px;
 }

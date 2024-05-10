@@ -10,7 +10,7 @@ const router = express.Router();
    
       router.post('/actualizarEstado', async (req, res) => {
         let luces = req.body;
-        query = "UPDATE luces SET estado = ? WHERE id_bombillo = ?";
+        query = "UPDATE luces SET estadoluces = ? WHERE id_bombillo = ?";
         let rta = await connection.query(query, [luces.estado, luces.id_bombillo]);
         console.log(rta);
         res.status(200).send({ message: "okay", idInsert: rta[0].insertId });
@@ -19,7 +19,7 @@ const router = express.Router();
    
         router.get('/recibirEstado', async (req, res)=>{
           let alarma =req.query;
-          query = "select t1.id_bombillo, t1.fecha_estado, t1.estado FROM sensor t1 INNER JOIN (SELECT id_bombillo, MAX(id) AS max_id FROM sensor GROUP BY id_bombillo) t2 ON t1.id_bombillo = t2.id_bombillo AND t1.id = t2.max_id ORDER BY t1.id_bombillo";
+          query = "select t1.id_bombillo,  t1.estadoluces FROM luces t1 INNER JOIN (SELECT id_bombillo, MAX(id) AS max_id FROM luces GROUP BY id_bombillo) t2 ON t1.id_bombillo = t2.id_bombillo AND t1.id = t2.max_id ORDER BY t1.id_bombillo";
           let rta = await connection.query(query, [alarma.id]);
           console.log(rta[0]);
           let data_rta =arreglarData(rta[0]);

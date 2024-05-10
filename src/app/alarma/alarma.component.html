@@ -3,16 +3,21 @@
         <div class="col-md-8">
             <div class="d-flex justify-content-center">
                 <div class="card" style="width: 18rem; margin-right: 10px;">
-                    <ng-container *ngIf="alarma.estado == 1; else apagadaTemplate">
+                    <ng-container *ngIf="alarma.estado_alarma === 1">
                         <img src="assets/alarmaEncendida.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-weight: bold; font-size: 24px;">Alarma</h5>
+                           <button mat-flat-button color="primary" (click)="apagarAlarma(alarma)">Apagar</button>
+                        </div>
                     </ng-container>
-                    <ng-template #apagadaTemplate>
+                    <ng-container *ngIf="alarma.estado_alarma === 0">
                         <img src="assets/alarma_apagada.jpg" class="card-img-top" alt="...">
-                    </ng-template>
-                    <div class="card-body">
+                        <div class="card-body">
                         <h5 class="card-title" style="font-weight: bold; font-size: 24px;">Alarma</h5>
                        <button mat-flat-button color="primary" (click)="apagarAlarma(alarma)">Apagar</button>
                     </div>
+                    </ng-container>
+                    
                 </div>
             </div>
         </div>

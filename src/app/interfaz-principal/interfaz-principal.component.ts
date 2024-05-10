@@ -20,12 +20,7 @@ export class InterfazPrincipalComponent {
 mostrarComponente:boolean = false;
 mostrarComponente2:boolean = false;
 mostrarComponente3:boolean = false;
-<<<<<<< HEAD
 mostrarComponente4:boolean = false;
-=======
-
-
->>>>>>> fa15f9cc4e515e71b19dfe7b3b4377e7be0a5bb3
 cambiarVisibilidad(){
 
   this.mostrarComponente=!this.mostrarComponente;
@@ -35,20 +30,12 @@ cambiarVisibilidad2(){
 
   this.mostrarComponente2=!this.mostrarComponente2;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> fa15f9cc4e515e71b19dfe7b3b4377e7be0a5bb3
 cambiarVisibilidad3(){
 
   this.mostrarComponente3=!this.mostrarComponente3;
 }
-<<<<<<< HEAD
 cambiarVisibilidad4(){
 
   this.mostrarComponente4=!this.mostrarComponente4;
 }
-=======
-
->>>>>>> fa15f9cc4e515e71b19dfe7b3b4377e7be0a5bb3
 }
