@@ -19,7 +19,7 @@ const router = express.Router();
           if(rta[0].length>0){
             res.status(400).send({message:"Cedula ya registrada"});
           }else{
-            query="insert into local(cedula, nombre, contraseña, numero, correo) value (?,?,?,?,?)"; 
+            query="insert into local(cedula, nombre, contraseña, numero, correo) value (?,?,UNHEX(SHA2(?, 256)),?,?)"; 
             rta= await connection.query(query,[admin.cedula,admin.nombre,admin.contraseña,admin.numero,admin.correo]);
             res.status(200).send({message:"Successfully registered."});
           }
@@ -53,7 +53,7 @@ const router = express.Router();
           let rta= await connection.query(query,[admin.cedula]);    
           console.log(rta[0]);
           if(rta[0].length>0){
-            query="UPDATE local SET nombre=? , contraseña=? , numero=? , correo=? WHERE cedula=?"
+            query="UPDATE local SET nombre=? , contraseña=UNHEX(SHA2(?, 256)) , numero=? , correo=? WHERE cedula=?"
             //UPDATE `local` SET `nombre`='Cristian',`contraseña`='bombom',`numero`='3135489',`correo`='unicauca' WHERE `cedula`='1022579'
             
             rta= await connection.query(query,[admin.nombre,admin.contraseña,admin.numero,admin.correo,admin.cedula]);
