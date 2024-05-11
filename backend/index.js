@@ -1,6 +1,7 @@
 var cors = require('cors');
 const express = require('express');
 const lucesR= require("./routes/luces")
+const login= require("./routes/login")
 const alarmaR= require("./routes/alarma")
 const modo1 = require("./routes/modo1")
 const invitadoC = require("./routes/invitado-crear")
@@ -10,7 +11,7 @@ const puertas = require("./routes/puertas")
 const invitadoB = require("./routes/invitado-buscar")
 const invitadoA = require("./routes/invitado-actualizar")
 const invitadoE = require("./routes/invitado-eliminar")
-const login =require(".routes/login")
+
 const app = express();
 
 app.use(cors());

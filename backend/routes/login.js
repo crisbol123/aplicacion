@@ -10,42 +10,42 @@ const router = express.Router();
         //const connection = await pool.getConnection();
         console.log('Connected to the MySQL server.');
 
-        router.get('/login', async (req, res)=>{
+        router.get('/log', async (req, res)=>{
           
           let admin=req.body;
-          query="select cedula global where cedula=?";
-          let rta = await connection.query(query);        
+          query="select cedula from global where cedula=?";
+          let rta = await connection.query(query,[admin.cedula]);        
           if(rta[0].length>0){
-            "SELECT IF(UNHEX(SHA2('SomePassword', 256)) = `contraseña`, '1', '0') AS Resultado FROM `local` WHERE `cedula` = 456411;"
-            query="SELECT IF(UNHEX(SHA2('SomePassword', 256)) = contraseña, '1', '0') AS Resultado FROM global WHERE cedula = ?;"
-            let rta1 = await connection.query(query); 
-            console.log(rta1);
-            res.status(200).send("1");
-          }else{
-            query="select cedula local where cedula=?";
-            let rta = await connection.query(query);
-            if(rta[0].length>0){
-                "SELECT IF(UNHEX(SHA2('SomePassword', 256)) = `contraseña`, '1', '0') AS Resultado FROM `local` WHERE `cedula` = 456411;"
-                query="SELECT IF(UNHEX(SHA2('SomePassword', 256)) = contraseña, '1', '0') AS Resultado FROM local WHERE cedula = ?;"
-                let rta1 = await connection.query(query); 
-                console.log(rta1);
-                res.status(200).send("1");
+            //"SELECT IF(UNHEX(SHA2('SomePassword', 256)) = `contraseña`, '1', '0') AS Resultado FROM `local` WHERE `cedula` = 456411;"
+            query="SELECT IF(UNHEX(SHA2(?, 256)) = contraseña , '1', '0') AS Resultado FROM global WHERE cedula=?";
+            let rta1 = await connection.query(query,[admin.contraseña,admin.cedula]); 
+            console.log(rta1[0][0].Resultado);
+            if(rta1[0][0].Resultado=="1"){
+              //console.log("hola");
+              res.status(200).send("global");
             }else{
-                
+              res.status(400).send("Credenciales incorrectos");
+            }
+          }else{
+            query="select cedula from local where cedula=?";
+            let rta = await connection.query(query,[admin.cedula]);
+            if(rta[0].length>0){
+                //"SELECT IF(UNHEX(SHA2(SomePassword, 256)) = `contraseña`, '1', '0') AS Resultado FROM `local` WHERE `cedula` = 456411;"
+                query="SELECT IF(UNHEX(SHA2(?, 256)) = contraseña , '1', '0') AS Resultado FROM local WHERE cedula=?";
+                let rta1 = await connection.query(query,[admin.contraseña,admin.cedula]); 
+                console.log(rta1[0][0].Resultado);
+                if(rta1[0][0].Resultado=="1"){
+                  //console.log("hola");
+                  res.status(200).send("local");
+                }else{
+                  res.status(400).send("Credenciales incorrectos");
+                }
+            }else{
+              res.status(400).send("Credenciales incorrectos");
             } 
           }
         });
 
-        router.get('/buscar', async (req, res)=>{
-          //SELECT * FROM `local` ORDER BY `cedula` ASC
-
-          query="SELECT * FROM local ORDER BY cedula ASC";
-          let rta = await connection.query(query);
-          console.log(rta[0][1]);
-          res.status(200).send(rta[0]);
-          
-        });
-        // Liberar la conexión a la base de datos
         connection.release();    
     } catch (error) {
       console.error('Error connecting to the MySQL server:', error);
@@ -53,4 +53,4 @@ const router = express.Router();
   })();
 
 
-  module.exports = router;
+module.exports = router;
