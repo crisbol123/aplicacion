@@ -10,6 +10,7 @@ const puertas = require("./routes/puertas")
 const invitadoB = require("./routes/invitado-buscar")
 const invitadoA = require("./routes/invitado-actualizar")
 const invitadoE = require("./routes/invitado-eliminar")
+const login =require(".routes/login")
 const app = express();
 
 app.use(cors());
@@ -25,4 +26,5 @@ app.use("/puertas",puertas)
 app.use("/invitado-buscar",invitadoB)
 app.use("/invitado-actualizar",invitadoA)
 app.use("/invitado-eliminar",invitadoE)
+app.use("/login",login)
 module.exports = app;
