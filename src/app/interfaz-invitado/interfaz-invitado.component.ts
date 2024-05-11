@@ -15,7 +15,7 @@ import { PuertasComponent } from '../puertas/puertas.component';
     styleUrl: './interfaz-invitado.component.css',
     imports: [CommonModule, FormsModule, LucesComponent, BarraAdminLocalComponent, MatButtonModule, MatIconModule, AlarmaComponent,PuertasComponent]
 })
-export class InterfazPrincipalComponent {
+export class InterfazInvitadoComponent {
   
 mostrarComponente:boolean = false;
 mostrarComponente2:boolean = false;
