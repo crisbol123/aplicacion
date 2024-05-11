@@ -2,16 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import { SolicitudesPhpLuzService } from '../solicitudes-php-luz.service';
+import { CommonModule } from '@angular/common';
+import { ConsultasAccesosService } from '../consultas-accesos.service';
+import { Input } from '@angular/core';
 @Component({
   selector: 'app-luces',
   standalone: true,
   imports: [MatButtonModule],
   templateUrl: './luces.component.html',
   styleUrl: './luces.component.css'
-})
+  })
+
+
 
 export class LucesComponent implements OnInit {
-  
+  luz1:number =0;
+  luz2:number =0;
+  luz3:number =0;
+  @Input() cedula: string ='';
+
+
   luces:Luz[]=[];
   
   source1 = '';
@@ -21,7 +31,7 @@ export class LucesComponent implements OnInit {
   estado2 =0;
   estado3 =0;
   
-  constructor(private service: SolicitudesPhpLuzService) {}
+  constructor(private service: SolicitudesPhpLuzService,private service2: ConsultasAccesosService) {}
 
   cambiarEstado(luzo:Luz){
     
@@ -37,10 +47,20 @@ ngOnInit(): void {
   
 
   this.service.getRequest().subscribe(data => {
+    console.log('luces'); 
     console.log(data); 
     this.luces= data;
 });
   
+this.service2.getRequest(this.cedula).subscribe(data => {
+  console.log('accesos'); 
+  console.log(data); 
+  this.luz1=data.luz1;
+  this.luz2=data.luz2;
+  this.luz3=data.luz3;
+  
+  
+});
 }
 }
 
