@@ -2,18 +2,18 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LucesComponent } from "../luces/luces.component";
-import { BarraAdminLocalComponent } from "../barra-admin-local/barra-admin-local.component";
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AlarmaComponent } from "../alarma/alarma.component";
 import { PuertasComponent } from '../puertas/puertas.component';
+import { BarraInvitadoComponent } from '../barra-invitado/barra-invitado.component';
 
 @Component({
     selector: 'app-interfaz-invitado',
     standalone: true,
     templateUrl: './interfaz-invitado.component.html',
     styleUrl: './interfaz-invitado.component.css',
-    imports: [CommonModule, FormsModule, LucesComponent, BarraAdminLocalComponent, MatButtonModule, MatIconModule, AlarmaComponent,PuertasComponent]
+    imports: [CommonModule, FormsModule, LucesComponent, MatButtonModule, MatIconModule, AlarmaComponent,PuertasComponent,BarraInvitadoComponent]
 })
 export class InterfazInvitadoComponent {
   
@@ -21,6 +21,7 @@ mostrarComponente:boolean = false;
 mostrarComponente2:boolean = false;
 mostrarComponente3:boolean = false;
 mostrarComponente4:boolean = false;
+
 cambiarVisibilidad(){
 
   this.mostrarComponente=!this.mostrarComponente;

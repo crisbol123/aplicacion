@@ -20,6 +20,7 @@ import { Modo2Component } from './modo2/modo2.component';
 import { AdjustTimeComponent } from './adjust-time/adjust-time.component';
 import { PuertasComponent } from './puertas/puertas.component';
 import { InterfazInvitadoComponent } from './interfaz-invitado/interfaz-invitado.component';
+
 export const routes: Routes = [
 
   { path: 'crear-admin-local', component: CrearAdminLocalComponent },
@@ -42,7 +43,8 @@ export const routes: Routes = [
   {path: 'modo2',component: Modo2Component},
   {path: 'adjust-time',component: AdjustTimeComponent},
   {path: 'puertas',component:PuertasComponent},
-  {path: 'interfaz-invitado',component: InterfazInvitadoComponent}
+  {path: 'interfaz-invitado',component:InterfazInvitadoComponent}
+
 ];
 
 
