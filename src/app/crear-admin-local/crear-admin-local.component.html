@@ -84,14 +84,19 @@
           type="email" 
           class="form-control" 
           id="correo" 
+          pattern=".*@.*" 
           name="correo" 
           [(ngModel)]="user.correo" 
           #correo="ngModel"
           required>
         <div *ngIf="(formSubmitted && correo.invalid) || (correo.invalid && (correo.dirty || correo.touched))" class="text-danger">
           <div *ngIf="correo.errors?.['required']">Correo es requerido.</div>
-          <div *ngIf="correo.errors?.['email']">Correo electrónico no válido.</div>
+          <div *ngIf="correo.errors?.['pattern']">Correo electrónico no válido.</div>
         </div>
+      </div>
+      <div *ngIf="upload" class="alert alert-dismissible alert-success">
+        <button type="button" class="btn-close" aria-label="Close" (click)="upload = false"></button>
+          Se creó el usuario correctamente
       </div>
       <div *ngIf="cedulaRegistrada" class="alert alert-dismissible alert-danger">
         <button type="button" class="btn-close" aria-label="Close" (click)="cedulaRegistrada = false"></button>

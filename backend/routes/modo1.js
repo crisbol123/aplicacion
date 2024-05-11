@@ -6,7 +6,6 @@ const router = express.Router();
 (async () =>{
     try {
         const connection = await pool.getConnection();
-        console.log('Connected to the MySQL server.');
      
         router.post('/post', async (req, res) => {
           try {
@@ -27,6 +26,8 @@ const router = express.Router();
 
               const [results1, fields1] = await connection.query("UPDATE luces SET estadoluces = 0 WHERE id_bombillo IN (1, 2, 3)");
 
+              const [results2, fields2] = await connection.query("UPDATE puertas SET estado = 0 WHERE id IN (1, 2, 3)");
+
               res.json({ estado: "Mensaje insertado correctamente en la base de datos" });
           } catch (error) {
               console.error("Error al insertar mensaje en la base de datos:", error);
@@ -44,6 +45,23 @@ const router = express.Router();
                 console.log('Conexión exitosa con la base de datos');
                 if (rows.length > 0) {
                     const value = rows[0].estadohogar; // Suponiendo que "estadohogar" es el nombre de la columna que deseas obtener
+                    //console.log(value);
+                    res.json({ value: value });
+                } else {
+                    res.json({ mensaje: 'No se encontraron resultados' });
+                }
+            } catch (error) {
+                console.error('Error al conectar con la base de datos:', error);
+                res.status(500).json({ error: 'Error interno del servidor' });
+            }
+        });
+
+        router.get('/get1', async (req, res) => {
+            try {
+                const [rows, fields] = await connection.query("SELECT estado_alarma FROM alarma");
+                console.log('Conexión exitosa con la base de datos');
+                if (rows.length > 0) {
+                    const value = rows[0].estado_alarma; // Suponiendo que "estadohogar" es el nombre de la columna que deseas obtener
                     //console.log(value);
                     res.json({ value: value });
                 } else {

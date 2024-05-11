@@ -23,6 +23,7 @@ export class CrearAdminLocalComponent {
     correo: ''
   };
   formSubmitted = false;
+  upload: boolean = false;
   constructor(private service: CrudGlobalService){}
   @ViewChild('registerForm', { static: false }) registerForm!: NgForm;
   onSubmit() {
@@ -33,7 +34,8 @@ export class CrearAdminLocalComponent {
       const data = { cedula: this.user.cedula, nombre: this.user.nombre, contraseña: this.user.contrasena, numero: this.user.numero, correo: this.user.correo };
       this.service.crear(data).subscribe((response) => {
         console.log(response); 
-        console.log(data); 
+        console.log(data);
+        this.upload=true; 
       },(error)=>{
         console.log(error); 
         this.mensaje = error.error.message;
