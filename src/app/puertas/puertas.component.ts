@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PuertasService } from '../servicios/servicio-puertas/puertas.service';
-
+import { ConsultasAccesosService } from '../consultas-accesos.service';
+import { Input } from '@angular/core';
 @Component({
   selector: 'app-puertas',
   standalone: true,
@@ -9,6 +10,10 @@ import { PuertasService } from '../servicios/servicio-puertas/puertas.service';
   styleUrl: './puertas.component.css'
 })
 export class PuertasComponent implements OnInit{
+  puerta1:number =0;
+  puerta2:number =0;
+  puerta3:number =0;
+  @Input() cedula: string ='';
 
   estadoPuerta1: number = 0;
   estadoPuerta2: number = 0;
@@ -18,7 +23,7 @@ export class PuertasComponent implements OnInit{
   textBoton3: string = '';
   
 
-  constructor(private service: PuertasService) {}
+  constructor(private service: PuertasService, private service2: ConsultasAccesosService) {}
 
   ngOnInit(): void {
     this.getData();
@@ -95,5 +100,16 @@ export class PuertasComponent implements OnInit{
       this.textBoton3 = 'Cerrar';
     }
   
-  }
-}
+  
+
+
+  this.service2.getRequest(this.cedula).subscribe(data => {
+    console.log('accesos'); 
+    console.log(data); 
+    this.puerta1=data.puerta1;
+    this.puerta2=data.puerta2;
+    this.puerta3=data.puerta3;
+    
+    
+  });
+}}

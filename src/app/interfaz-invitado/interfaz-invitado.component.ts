@@ -16,8 +16,7 @@ import { ConsultasAccesosService } from '../consultas-accesos.service';
     standalone: true,
     templateUrl: './interfaz-invitado.component.html',
     styleUrl: './interfaz-invitado.component.css',
-
-    imports: [CommonModule, FormsModule, LucesComponent, BarraAdminLocalComponent, MatButtonModule, MatIconModule, AlarmaComponent, PuertasComponent, BarraInvitadoComponent]
+ imports: [CommonModule, FormsModule, LucesComponent, MatButtonModule, MatIconModule, AlarmaComponent, PuertasComponent, BarraInvitadoComponent]
 
 })
 export class InterfazInvitadoComponent {
