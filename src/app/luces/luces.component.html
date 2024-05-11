@@ -11,7 +11,10 @@
                     }
                     <div class="card-body">
                         <h5 class="card-title" style="font-weight: bold; font-size: 24px;">Bombillo {{luz.id_bombillo}}</h5>
-                        <button mat-flat-button color="primary" (click)="cambiarEstado(luz)">Encender/Apagar</button>
+                        @if((this.luz1==1 && luz.id_bombillo==1)||(this.luz2==1 && luz.id_bombillo==2)||(this.luz3==1 && luz.id_bombillo==3)){
+                            <button mat-flat-button color="primary" (click)="cambiarEstado(luz)">Encender/Apagar</button>
+                        }
+                          
                     </div>
                 </div>
                 }
