@@ -10,7 +10,7 @@ const router = express.Router();
    
       router.post('/actualizarEstadoAlarma', async (req, res)=>{
         let alarma = req.body;
-        query = "insert into alarma(estado) value (?)";
+        query = "UPDATE alarma SET estado_alarma = ? WHERE id = 1 ";
         let rta = await connection.query(query, [alarma.estado]);
         console.log(rta);
         res.status(200).send({message:"okay",idInsert:rta[0].insertId});
@@ -18,9 +18,9 @@ const router = express.Router();
    
         router.get('/recibirEstadoAlarma', async (req, res)=>{
           let alarma =req.query;
-          query = "SELECT estado, fecha_estado FROM alarma ORDER BY id DESC LIMIT 1;";
+          query = "SELECT estado_alarma FROM alarma WHERE id = 1";
           let rta = await connection.query(query, [alarma.id]);
-          console.log(rta[0][0]);
+          console.log(rta[0][0].estado_alarma);
           res.status(200).send(rta[0][0]);
           })
       connection.release();

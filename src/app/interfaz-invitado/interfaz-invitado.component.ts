@@ -9,13 +9,13 @@ import { AlarmaComponent } from "../alarma/alarma.component";
 import { PuertasComponent } from '../puertas/puertas.component';
 
 @Component({
-    selector: 'app-interfaz-principal',
+    selector: 'app-interfaz-invitado',
     standalone: true,
-    templateUrl: './interfaz-principal.component.html',
-    styleUrl: './interfaz-principal.component.css',
+    templateUrl: './interfaz-invitado.component.html',
+    styleUrl: './interfaz-invitado.component.css',
     imports: [CommonModule, FormsModule, LucesComponent, BarraAdminLocalComponent, MatButtonModule, MatIconModule, AlarmaComponent,PuertasComponent]
 })
-export class InterfazPrincipalComponent {
+export class InterfazInvitadoComponent {
   
 mostrarComponente:boolean = false;
 mostrarComponente2:boolean = false;

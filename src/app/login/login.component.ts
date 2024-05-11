@@ -36,6 +36,10 @@ export class LoginComponent implements OnInit{
       this.router.navigate(['/interfaz-principal']);
     }
 
+    Invitado(){
+      this.router.navigate(['/interfaz-invitado']);
+    }
+
     ngOnInit(): void {
       
     }

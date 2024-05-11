@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { SolicitudesAlarmaService } from '../solicitudes-alarma.service';
 import { CommonModule } from '@angular/common';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { tap, switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-alarma',
   standalone: true,
@@ -11,7 +15,7 @@ import { CommonModule } from '@angular/common';
 export class AlarmaComponent {
 source='';
 
-  alarma: Alarma = { estado: null, fecha_estado: null };
+  alarma: Alarma = { estado_alarma: null };
 
   constructor(private service: SolicitudesAlarmaService) {
    
@@ -21,11 +25,11 @@ source='';
   apagarAlarma(alarmaa:Alarma){
     
     console.log(alarmaa);
-    if(alarmaa.estado== 1){ 
-      alarmaa.estado=0;
+    if(alarmaa.estado_alarma== 1){ 
+      alarmaa.estado_alarma=0;
 
     }
-    const data = { estado: alarmaa.estado}; // Datos que quieres enviar en la solicitud
+    const data = { estado: alarmaa.estado_alarma}; // Datos que quieres enviar en la solicitud
     this.service.postRequest(data).subscribe(response => {
     console.log(response);
 });
@@ -34,14 +38,9 @@ source='';
 
 ngOnInit(): void {
   
-
-  this.service.getRequest().subscribe(data => {
+    this.service.getalarmState().subscribe((state) => {
+      this.alarma.estado_alarma = state;
    
-    this.alarma= data;
-    
-    console.log( data); 
-    console.log(this.alarma); 
-    
 
 });
 
@@ -53,6 +52,6 @@ ngOnInit(): void {
 }
 
 export class Alarma{
-  estado: any;
-  fecha_estado:any;
+estado_alarma: any;
+
 }
