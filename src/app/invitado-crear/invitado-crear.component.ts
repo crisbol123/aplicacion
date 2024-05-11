@@ -12,7 +12,7 @@ import { CrearInvitadoService } from '../servicios/servicio-invitado-crear/crear
   styleUrl: './invitado-crear.component.css'
 })
 export class InvitadoCrearComponent {
-  mensaje: String ="";
+  //mensaje: String ="";
 
   mensaje: string = "";
   cedulaRegistrada: boolean = false;

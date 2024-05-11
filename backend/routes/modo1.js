@@ -25,7 +25,7 @@ const router = express.Router();
               const [results, fields] = await connection.query("UPDATE modos SET estadohogar = ? WHERE id = 1", [estado.estado]);
               console.log("Mensaje actualizado correctamente en la base de datos");
 
-              const [results1, fields1] = await connection.query("UPDATE luces SET estadoluces = 1 WHERE id_bombillo IN (1, 2, 3)");
+              const [results1, fields1] = await connection.query("UPDATE luces SET estadoluces = 0 WHERE id_bombillo IN (1, 2, 3)");
 
               res.json({ estado: "Mensaje insertado correctamente en la base de datos" });
           } catch (error) {
