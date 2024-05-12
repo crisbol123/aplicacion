@@ -12,7 +12,6 @@ const puertas = require("./routes/puertas")
 const invitadoB = require("./routes/invitado-buscar")
 const invitadoA = require("./routes/invitado-actualizar")
 const invitadoE = require("./routes/invitado-eliminar")
-
 const app = express();
 
 app.use(cors());

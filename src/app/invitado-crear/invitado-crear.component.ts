@@ -36,6 +36,7 @@ export class InvitadoCrearComponent {
   };
 
   formSubmitted = false;
+  upload: boolean = false;
 
   @ViewChild('registerForm', { static: false }) registerForm!: NgForm;
   onSubmit() {
@@ -59,6 +60,7 @@ export class InvitadoCrearComponent {
       (response) => {
         this.mensaje = response.respuesta || this.mensaje;
         console.log(this.mensaje);
+        this.upload = true;
       },
       (error) => {
         //console.log('Error al enviar datos:', error);

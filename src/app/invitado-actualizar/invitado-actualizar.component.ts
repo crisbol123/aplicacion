@@ -15,7 +15,8 @@ import { ActualizarInvitadoService } from '../servicios/servicio-invitado-actual
 export class InvitadoActualizarComponent {
 
   mensaje: string = "";
-  //cedulaRegistrada: boolean = false;
+  cedulaRegistrada: boolean = false;
+  upload: boolean = false;
 
   constructor(private service: ActualizarInvitadoService){}
   
@@ -59,9 +60,11 @@ export class InvitadoActualizarComponent {
       (response) => {
         this.mensaje = response.respuesta || this.mensaje;
         console.log(this.mensaje);
+        this.upload= true;
       },
       (error) => {
         console.log(error);
+        this.cedulaRegistrada = true;
       }
     );
   }

@@ -21,15 +21,41 @@
       <!-- Mensaje de Error -->
       
       <div class="form-floating mb-3">
-        <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Cedula</label>
+        <input 
+          type="number" 
+          class="form-control" 
+          id="cedula" 
+          name="cedula" 
+          pattern="^[1-9]\d*$"
+          [(ngModel)]="user.cedula" 
+          #cedula="ngModel"
+          required
+          placeholder="Cedula">
+        <label for="cedula">Cedula</label>
+        <div *ngIf="(formSubmitted && cedula.invalid) || (cedula.invalid && (cedula.dirty || cedula.touched))" class="text-danger">
+          <div *ngIf="cedula.errors?.['required']">Cédula es requerida.</div>
+          <div *ngIf="cedula.errors?.['pattern']">Ingrese una cédula valida</div>
+        </div>
       </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
+      <div class="form-floating mb-3">
+        
+        <input 
+          type="password" 
+          class="form-control" 
+          id="contrasena" 
+          name="contrasena" 
+          [(ngModel)]="user.contrasena" 
+          required
+          placeholder="Contraseña"        
+          #contrasena="ngModel">
+          <label for="contrasena">Contraseña:</label>
+        <div *ngIf="(formSubmitted && contrasena.invalid) || (contrasena.invalid && (contrasena.dirty || contrasena.touched))" class="text-danger">
+          <div *ngIf="contrasena.errors?.['required']">Contraseña es requerida.</div>
+        </div>
       </div>
-      <div *ngIf="loginError" class="alert alert-danger">
-        Credenciales incorrectos. Por favor, inténtalo de nuevo.
+      <div *ngIf="loginError" class="alert alert-dismissible alert-danger">
+        <button type="button" class="btn-close" aria-label="Close" (click)="loginError = false"></button>
+        {{errorLogin}}
       </div>
   
       <!-- Botón de Login -->
@@ -45,4 +71,7 @@
 </div>
 <button (click)="Global()" type="submit" class="btn btn-secondary">Global</button><br><br> 
 <button (click)="Local()" type="submit" class="btn btn-secondary">Local</button><br><br>
-<button (click)="Invitado()" type="submit" class="btn btn-secondary">Invitado</button>  
+<!--<button (click)="Invitado()" type="submit" class="btn btn-secondary">Invitado</button><br><br>
+<button (click)="login()" type="submit" class="btn btn-secondary">log in</button>  -->
+
+
