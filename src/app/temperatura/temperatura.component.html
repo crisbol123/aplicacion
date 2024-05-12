@@ -2,21 +2,38 @@
   <div class="left-section">
     <div class="thermometer">
       <h2>Temperatura Real</h2>
-      <p>{{ currentTemperature }} °C</p>
+      <div  class="d-flex align-items-center" >
+        
+        <img src="assets/termometro.png" alt="Termómetro" class="termometro-img mr-3">
+        <label class="temp_actual mb-0"> {{ currentTemperature }}°C</label>
+        
+      </div>
     </div>
   </div>
   <div class="right-section">
     <div class="thermostat">
       <div class="temperature-setting">
-        <h2>Temperatura Aire Acondicionado</h2>
-        <input type="range" min="0" max="30" step="1" [(ngModel)]="desiredTemperature">
-        <p>{{ desiredTemperature }} °C</p>
+        <h2>Ventilación</h2>
+        <div  class="aire_center d-flex align-items-center" >
+          <img src="assets/aire_acondicionado.png" alt="aire_acondicionado" class="aire-img mr-3">
+          <label class="temp_des1 ">{{ desiredTemperature }} °C<p class="temp_des2 ">Temperatura<br>deseada</p></label>
+          
+        </div>
+        <br>
+        <input type="range" min="15" max="25" step="1" [(ngModel)]="desiredTemperature" [disabled]="isDisabled" (ngModelChange)="onTemperatureChange()">
       </div>
-      <div class="switch">
+      
         <label>
-          <input type="checkbox" [(ngModel)]="isACOn"> Aire Acondicionado
+          <div class="switch-container">
+            <span>OFF</span>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [(ngModel)]="switchState" (ngModelChange)="onSwitchChange()" >
+            </div>
+            <span>ON</span>
+          </div>
+          
         </label>
-      </div>
+      
     </div>
   </div>
 </div>

@@ -5,7 +5,73 @@
   .left-section, .right-section {
     flex: 1;
     padding: 20px;
+    
   }
+  .termometro-img {
+    max-width: 200px; /* Ancho máximo de la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+    margin-left:15px; /* Margen izquierdo */
+
+  }
+  .temperature-setting img, .temperature-setting p {
+    vertical-align: middle;
+  }
+  .aire_center{
+    margin-left:50px; /* Margen izquierdo */
+  }
+  .aire-img {
+    max-width: 200px; /* Ancho máximo de la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+    margin-left:0px; /* Margen izquierdo */
+
+  }
+
+  .temp_actual{
+    font-size: 50px; /* Tamaño de fuente */
+  color: #dd3b3b; /* Color de texto */
+  margin-left: 1px; /* Margen izquierdo */
+  font-weight: bold; /* Negrita */
+  text-shadow: 4px 4px 5px rgba(0,0,0,0.2); /* Sombra */
+
+  }  
+  .temp_des1{
+    font-size: 50px; /* Tamaño de fuente */
+  color: #4cb5d4; /* Color de texto */
+  margin-left: 15px; /* Margen izquierdo */
+  margin-top: 15px;
+  font-weight: bold; /* Negrita */
+  text-shadow: 4px 4px 5px rgba(0,0,0,0.2); /* Sombra */
+
+  } 
+  .form-check-input[type="checkbox"] {
+    border-color: black;
+  }
+  /* Contenedor del switch y los textos */
+.switch-container {
+  display: flex;
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+/* Texto "OFF" y "ON" */
+.switch-container span {
+  margin-right: 10px; /* Ajusta el espacio entre el texto y el switch según sea necesario */
+  margin-left: 10px;
+  font-weight: bold; /* Negrita */
+}
+  
+  /* Ajustar el tamaño del switch */
+  .form-check-input[type="checkbox"] {
+    width: 40px; /* Ajusta el ancho según sea necesario */
+    height: 20px; /* Ajusta la altura según sea necesario */
+  }
+  .temp_des2{
+  font-size: 20px; /* Tamaño de fuente */
+  color: #2e66bb; /* Color de texto */
+  margin-left: 1px; /* Margen izquierdo */
+  font-weight: bold; /* Negrita */
+  text-shadow: 4px 4px 5px rgba(0,0,0,0.2); /* Sombra */
+
+  } 
   
   .thermometer, .thermostat {
     text-align: center;

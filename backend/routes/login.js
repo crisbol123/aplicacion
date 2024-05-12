@@ -46,7 +46,7 @@ const router = express.Router();
                 query="select cedula from invitado where cedula=?";
                 let rta = await connection.query(query,[admin.cedula]);
                 if(rta[0].length>0){
-                  query="SELECT IF(UNHEX(SHA2(?, 256)) = contraseña , '1', '0') AS Resultado FROM invitado WHERE cedula=?";
+                  query="SELECT IF(UNHEX(SHA2(?, 256)) = contrasena , '1', '0') AS Resultado FROM invitado WHERE cedula=?";
                   let rta1 = await connection.query(query,[admin.contraseña,admin.cedula]); 
                   console.log(rta1[0][0].Resultado);
                   if(rta1[0][0].Resultado=="1"){
