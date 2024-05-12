@@ -136,6 +136,11 @@
         </label>
     </div>
 
+    <div *ngIf="upload" class="alert alert-dismissible alert-success">
+      <button type="button" class="btn-close" aria-label="Close" (click)="upload = false"></button>
+        Se creó el usuario correctamente
+    </div>
+
     <!-- Botón de Registrar -->
     <div class="d-grid gap-2">
       <button type="submit" class="btn btn-primary">Registrar</button>

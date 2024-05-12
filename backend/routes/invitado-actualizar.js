@@ -5,48 +5,53 @@ const router = express.Router();
 
 router.post('/post', async (req, res) => {
 
-    //console.log("Hello motherfucker");
-
     try {
-        //console.log("Motherfucker");
         const connection = await pool.getConnection();
-        // Obtener el objeto 'estado' del cuerpo de la solicitud
         const estado = req.body.estado;
-        //console.log("Estado",estado);
 
-        // Verificar si el objeto 'estado' está vacío
         if (!estado) {
             res.status(400).json({ error: "El mensaje no puede estar vacío" });
             return;
         }
 
-        // Obtener la cédula del estado
-        const cedula = estado.cedula;
-        //console.log("Cedula: ",cedula);
-
         // Verificar si la cédula ya existe en la base de datos
-        //const query1 = "SELECT cedula FROM invitado WHERE cedula = ?";
-        //const [rows, fields] = await connection.query(query1, [cedula]);
+        const query1 = "SELECT cedula FROM invitado WHERE cedula = ?";
+        const [rows, fields] = await connection.query(query1, [estado.cedula]);
 
-        // Verificar si ya existe un registro con la misma cédula
-        //if (rows.length > 0) {
-            // Si ya existe, devolver un mensaje de error
-            //return res.status(400).json({ message: "La cédula ya está registrada" })
-        //}
+        if (rows.length === 0) {
+            // Si la cédula no existe, devolver un mensaje de error
+            res.status(400).json({ error: "La cédula no está registrada" });
+            return;
+        }
 
-        // Si no existe, realizar la inserción en la base de datos
-        const columns = Object.keys(estado);
-        //console.log(columns);
-        const values = Object.values(estado);
+        // Realizar la actualización en la base de datos
+        const query2 = "UPDATE smart_home.invitado SET nombre = ?, contrasena = UNHEX(SHA2(?, 256)), numero = ?, correo = ?, alarma = ?, luz1 = ?, luz2 = ?, luz3 = ?, puerta1 = ?, puerta2 = ?, puerta3 = ?, temperatura = ? WHERE cedula = ?";
 
-        const query2 = `UPDATE smart_home.invitado SET ${columns.map(column => `${column} = ?`).join(', ')} WHERE cedula = ?`;
-        const [results, fields2] = await connection.query(query2, [...values, cedula]);        
-        res.json({ respuesta: "Mensaje insertado correctamente en la base de datos" })
+        const { cedula, ...restoEstado } = estado; // excluyendo la cédula
+        const values = [
+            restoEstado.nombre,
+            restoEstado.contrasena,
+            restoEstado.numero,
+            restoEstado.correo,
+            restoEstado.alarma,
+            restoEstado.luz1,
+            restoEstado.luz2,
+            restoEstado.luz3,
+            restoEstado.puerta1,
+            restoEstado.puerta2,
+            restoEstado.puerta3,
+            restoEstado.temperatura,
+            cedula // pasando la cédula separadamente
+        ];
+
+        await connection.query(query2, values);
+        
+        res.status(200).send({ message: "Actualización exitosa" });
 
         // Liberar la conexión a la base de datos
         connection.release();
     } catch (error) {
-        console.error("Error al insertar mensaje en la base de datos:", error);
+        console.error("Error al actualizar en la base de datos:", error);
         res.status(500).json({ error: "Error interno del servidor" });
     }
 });

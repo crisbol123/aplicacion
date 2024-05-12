@@ -55,23 +55,6 @@ const router = express.Router();
                 res.status(500).json({ error: 'Error interno del servidor' });
             }
         });
-
-        router.get('/get1', async (req, res) => {
-            try {
-                const [rows, fields] = await connection.query("SELECT estado_alarma FROM alarma");
-                console.log('Conexión exitosa con la base de datos');
-                if (rows.length > 0) {
-                    const value = rows[0].estado_alarma; // Suponiendo que "estadohogar" es el nombre de la columna que deseas obtener
-                    //console.log(value);
-                    res.json({ value: value });
-                } else {
-                    res.json({ mensaje: 'No se encontraron resultados' });
-                }
-            } catch (error) {
-                console.error('Error al conectar con la base de datos:', error);
-                res.status(500).json({ error: 'Error interno del servidor' });
-            }
-        });
         
         connection.release();
       } catch (error) {

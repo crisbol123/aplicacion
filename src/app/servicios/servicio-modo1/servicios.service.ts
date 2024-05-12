@@ -9,16 +9,11 @@ import { Observable } from 'rxjs';
 export class ServiciosService {
 
   private backendUrl = 'http://localhost:8081/modo1/get'; // URL del backend
-  private backendUrl1 = 'http://localhost:8081/modo1/get1';
 
   constructor(private http: HttpClient) {}
 
   getRequest(): Observable<any> {
     return this.http.get(this.backendUrl);
-  }
-
-  getRequest1(): Observable<any> {
-    return this.http.get(this.backendUrl1);
   }
 
   postRequest(data: any): Observable<any>{

@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit{
     }
 
     Invitado(){
-      this.router.navigate(['/interfaz-invitado'], { queryParams: { cedula: '1004415321' } });
+      this.router.navigate(['/interfaz-invitado'], { queryParams: { cedula: '1004423712' } });
     }
 
     ngOnInit(): void {
