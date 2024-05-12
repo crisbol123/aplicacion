@@ -10,9 +10,11 @@ import { Input } from '@angular/core';
   styleUrl: './puertas.component.css'
 })
 export class PuertasComponent implements OnInit{
-  puerta1:number =0;
-  puerta2:number =0;
-  puerta3:number =0;
+
+  @Input() permitido: boolean =false;
+  puerta1:number =1;
+  puerta2:number =1;
+  puerta3:number =1;
   @Input() cedula: string ='';
 
   estadoPuerta1: number = 0;
@@ -102,6 +104,7 @@ export class PuertasComponent implements OnInit{
   
   
 
+    if(!this.permitido){
 
   this.service2.getRequest(this.cedula).subscribe(data => {
     console.log('accesos'); 
@@ -110,6 +113,7 @@ export class PuertasComponent implements OnInit{
     this.puerta2=data.puerta2;
     this.puerta3=data.puerta3;
     
-    
-  });
+  }
+  );
+}
 }}

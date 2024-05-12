@@ -16,10 +16,11 @@ import { Input } from '@angular/core';
 
 
 export class LucesComponent implements OnInit {
-  luz1:number =0;
-  luz2:number =0;
-  luz3:number =0;
+  luz1:number =1;
+  luz2:number =1;
+  luz3:number =1;
   @Input() cedula: string ='';
+  @Input() permitido: boolean =false;
 
 
   luces:Luz[]=[];
@@ -51,7 +52,7 @@ ngOnInit(): void {
     console.log(data); 
     this.luces= data;
 });
-  
+if(!this.permitido){
 this.service2.getRequest(this.cedula).subscribe(data => {
   console.log('accesos'); 
   console.log(data); 
@@ -61,6 +62,7 @@ this.service2.getRequest(this.cedula).subscribe(data => {
   
   
 });
+}
 }
 }
 
