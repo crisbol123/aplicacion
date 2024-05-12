@@ -7,13 +7,15 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AlarmaComponent } from "../alarma/alarma.component";
 import { PuertasComponent } from '../puertas/puertas.component';
+import { TemperaturaComponent } from '../temperatura/temperatura.component';
+
 
 @Component({
     selector: 'app-interfaz-principal',
     standalone: true,
     templateUrl: './interfaz-principal.component.html',
     styleUrl: './interfaz-principal.component.css',
-    imports: [CommonModule, FormsModule, LucesComponent, BarraAdminLocalComponent, MatButtonModule, MatIconModule, AlarmaComponent,PuertasComponent]
+    imports: [CommonModule, FormsModule, LucesComponent, BarraAdminLocalComponent, MatButtonModule, MatIconModule, AlarmaComponent,PuertasComponent,TemperaturaComponent]
 })
 export class InterfazPrincipalComponent {
   

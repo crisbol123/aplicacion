@@ -8,9 +8,9 @@ const router = express.Router();
       const connection = await pool.getConnection();
       console.log('Connected to the MySQL server.');
         //const connection = await pool.getConnection();
-        console.log('Connected to the MySQL server.');
+      
 
-        router.get('/log', async (req, res)=>{
+        router.post('/log', async (req, res)=>{
           
           let admin=req.body;
           query="select cedula from global where cedula=?";
@@ -21,10 +21,11 @@ const router = express.Router();
             let rta1 = await connection.query(query,[admin.contraseña,admin.cedula]); 
             console.log(rta1[0][0].Resultado);
             if(rta1[0][0].Resultado=="1"){
-              //console.log("hola");
-              res.status(200).send("global");
+              console.log("hola");
+              res.status(200).send({tipo:"global"});
+              //res.status(200).send("global");
             }else{
-              res.status(400).send("Credenciales incorrectos");
+              res.status(400).send({tipo:"credenciales incorrectos"});
             }
           }else{
             query="select cedula from local where cedula=?";
@@ -36,17 +37,33 @@ const router = express.Router();
                 console.log(rta1[0][0].Resultado);
                 if(rta1[0][0].Resultado=="1"){
                   //console.log("hola");
-                  res.status(200).send("local");
+                  res.status(200).send({tipo:"local"});
+                  
                 }else{
-                  res.status(400).send("Credenciales incorrectos");
+                  res.status(400).send({tipo:"credenciales incorrectos"});
                 }
             }else{
-              res.status(400).send("Credenciales incorrectos");
+                query="select cedula from invitado where cedula=?";
+                let rta = await connection.query(query,[admin.cedula]);
+                if(rta[0].length>0){
+                  query="SELECT IF(UNHEX(SHA2(?, 256)) = contraseña , '1', '0') AS Resultado FROM invitado WHERE cedula=?";
+                  let rta1 = await connection.query(query,[admin.contraseña,admin.cedula]); 
+                  console.log(rta1[0][0].Resultado);
+                  if(rta1[0][0].Resultado=="1"){
+                    //console.log("hola");
+                    res.status(200).send({tipo:"invitado"});
+                  }else{
+                    res.status(400).send({tipo:"credenciales incorrectos"});
+                  }
+                }else{
+                  res.status(400).send({tipo:"credenciales incorrectos"});
+                }
+              
             } 
           }
         });
 
-        connection.release();    
+      connection.release();    
     } catch (error) {
       console.error('Error connecting to the MySQL server:', error);
     }
