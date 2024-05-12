@@ -16,10 +16,10 @@ export class ReadAdminLocalComponent implements OnInit{
   locales:local[]=[];
   
   ngOnInit(): void {
-    this.service.buscar().subscribe(data => {
+      this.service.buscar().subscribe(data => {
       console.log(data); 
       this.locales= data;
-    });
+      });
   }
 
   constructor(private router: Router,private service: CrudGlobalService){

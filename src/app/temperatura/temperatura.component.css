@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+  }
+  
+  .left-section, .right-section {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .thermometer, .thermostat {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .thermometer p, .temperature-setting p {
+    margin-top: 10px;
+  }
+  
+  .temperature-setting input[type="range"] {
+    width: 200px;
+  }
+  
+  .switch input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  

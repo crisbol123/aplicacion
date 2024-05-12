@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="left-section">
+    <div class="thermometer">
+      <h2>Temperatura Real</h2>
+      <p>{{ currentTemperature }} °C</p>
+    </div>
+  </div>
+  <div class="right-section">
+    <div class="thermostat">
+      <div class="temperature-setting">
+        <h2>Temperatura Aire Acondicionado</h2>
+        <input type="range" min="0" max="30" step="1" [(ngModel)]="desiredTemperature">
+        <p>{{ desiredTemperature }} °C</p>
+      </div>
+      <div class="switch">
+        <label>
+          <input type="checkbox" [(ngModel)]="isACOn"> Aire Acondicionado
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
