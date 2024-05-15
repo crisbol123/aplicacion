@@ -19,9 +19,9 @@ const router = express.Router();
   
         router.post('/update-data', async (req, res)=>{
             let temp=req.body;
-            //UPDATE `temperatura` SET `referencia`='20',`valormedido`='27',`enable`='0' WHERE 1;
-            query="UPDATE temperatura SET referencia=?,enable=? WHERE id=1";
-            let rta= await connection.query(query,[temp.referencia,temp.enable]);
+            //UPDATE `temperatura` SET `referencia`='20',`valormedido`='27',`enablee`='0' WHERE 1;
+            query="UPDATE temperatura SET referencia=?,enablee=? WHERE id=1";
+            let rta= await connection.query(query,[temp.referencia,temp.enablee]);
             //console.log(temp);
             res.status(200).send({message:"Se actualizo correctemente"});  
         });

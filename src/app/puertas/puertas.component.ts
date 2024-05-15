@@ -104,7 +104,7 @@ export class PuertasComponent implements OnInit{
   
   
 
-    if(!this.permitido){
+  if(!this.permitido){
 
   this.service2.getRequest(this.cedula).subscribe(data => {
     console.log('accesos'); 

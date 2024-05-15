@@ -27,7 +27,7 @@
           <div class="switch-container">
             <span>OFF</span>
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [(ngModel)]="switchState" (ngModelChange)="onSwitchChange()" >
+              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [disabled]="accesoInv" [(ngModel)]="switchState" (ngModelChange)="onSwitchChange()" >
             </div>
             <span>ON</span>
           </div>
