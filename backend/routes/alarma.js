@@ -15,10 +15,17 @@ const router = express.Router();
         console.log(rta);
         res.status(200).send({message:"okay",idInsert:rta[0].insertId});
         })
-   
-        router.get('/recibirEstadoAlarma', async (req, res)=>{
+
+      router.post('/actualizarEnableAlarma', async (req, res)=>{
+        const {enable}=req.body;
+        query = "UPDATE alarma SET enablee = ? WHERE id = 1 ";
+        let rta = await connection.query(query, [enable]);
+        console.log(rta);
+        res.status(200).send({message:"okay",idInsert:rta[0].insertId});
+        })
+        router.get('/recibirInfoAlarma', async (req, res)=>{
           let alarma =req.query;
-          query = "SELECT estado_alarma FROM alarma WHERE id = 1";
+          query = "SELECT estado_alarma, tiempoactivado, enablee FROM alarma WHERE id = 1";
           let rta = await connection.query(query, [alarma.id]);
           console.log(rta[0][0].estado_alarma);
           res.status(200).send(rta[0][0]);

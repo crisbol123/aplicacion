@@ -10,7 +10,7 @@ const router = express.Router();
    
         router.get('/recibirAccesos', async (req, res)=>{
           let user =req.query;
-          query = "SELECT luz1, luz2, luz3, puerta1, puerta2, puerta3, temperatura FROM invitado WHERE cedula = ?";
+          query = "SELECT luz1, luz2, luz3, puerta1, puerta2, puerta3, temperatura, alarma FROM invitado WHERE cedula = ?";
           let rta = await connection.query(query, [user.cedula]);
           console.log(rta[0][0]);
           res.status(200).send(rta[0][0]);

@@ -22,7 +22,7 @@
 
   <div class="mt-3" *ngIf="mostrarComponente2">
     
-    <app-alarma></app-alarma>
+    <app-alarma [permitido]="true"></app-alarma>
   </div>
 
   
@@ -46,7 +46,9 @@
     </button>
   </div>
   <div class="mt-3" *ngIf="mostrarComponente4">
+
     <app-temperatura [permitido]="true"></app-temperatura>
+
     
   </div>
 
