@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet,Router,RouterLink,RouterLinkActive} from '@angular/router';
 import { ServicioBarraService } from '../servicio-barra.service';
 import { routes } from '../app.routes';
+import { SolicitudesAlarmaService } from '../solicitudes-alarma.service';
+import { AlertService } from '../alert.service';
 
 
 @Component({
@@ -16,13 +18,34 @@ import { routes } from '../app.routes';
 })
 export class BarraAdminLocalComponent implements OnInit {
   @Input() action: string="";
-
-  constructor(private miServicio:ServicioBarraService,private router: Router){}
+  currentComponent=""
+showAlert= false;
+  constructor(private obtenerEstado:SolicitudesAlarmaService,private obtenerEstadoAlert: AlertService, private miServicio:ServicioBarraService,private router: Router){}
+  
   ngOnInit(): void {
-    
+  
+    this.obtenerEstado.getalarmState().subscribe((state) => {
+      if(state==1){
+     
+  this.obtenerEstadoAlert.showAlert();
+      }
+  
+    });
+  
+      this.obtenerEstadoAlert.alert$.subscribe((res)=>
+      {this.showAlert= true;
+  
+  setTimeout(() => {
+    this.showAlert=false;
+  }, 1000);
+      
+  });
+     
+  
+  
   }
 
-  currentComponent: string = "";
+  
 
   showComponent(action: string): void {
     this.currentComponent = action;
