@@ -6,6 +6,7 @@ import { routes } from '../app.routes';
 import { SolicitudesAlarmaService } from '../solicitudes-alarma.service';
 import { AlertService } from '../alert.service';
 
+
 @Component({
 
   selector: 'app-barra-admin-local',
@@ -16,13 +17,10 @@ import { AlertService } from '../alert.service';
   styleUrl: './barra-admin-local.component.css'
 })
 export class BarraAdminLocalComponent implements OnInit {
-
-  showAlert=false;
   @Input() action: string="";
-  currentComponent: string = "";
-  constructor(private obtenerEstado:  SolicitudesAlarmaService, private obtenerEstadoAlert:  AlertService, private router: Router){
-
-  }
+  currentComponent=""
+showAlert= false;
+  constructor(private obtenerEstado:SolicitudesAlarmaService,private obtenerEstadoAlert: AlertService, private miServicio:ServicioBarraService,private router: Router){}
   
   ngOnInit(): void {
   
