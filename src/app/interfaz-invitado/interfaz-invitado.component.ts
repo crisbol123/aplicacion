@@ -10,6 +10,7 @@ import { PuertasComponent } from '../puertas/puertas.component';
 import { BarraInvitadoComponent } from "../barra-invitado/barra-invitado.component";
 import { ActivatedRoute } from '@angular/router';
 import { ConsultasAccesosService } from '../consultas-accesos.service';
+import { TemperaturaComponent } from '../temperatura/temperatura.component';
 
 @Component({
     selector: 'app-interfaz-invitado',
@@ -17,7 +18,7 @@ import { ConsultasAccesosService } from '../consultas-accesos.service';
     templateUrl: './interfaz-invitado.component.html',
     styleUrl: './interfaz-invitado.component.css',
 
-    imports: [CommonModule, FormsModule, LucesComponent, MatButtonModule, MatIconModule, AlarmaComponent, PuertasComponent, BarraInvitadoComponent]
+    imports: [CommonModule, FormsModule, LucesComponent, MatButtonModule, MatIconModule, AlarmaComponent, PuertasComponent, BarraInvitadoComponent,TemperaturaComponent]
 
 })
 export class InterfazInvitadoComponent {

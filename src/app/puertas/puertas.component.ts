@@ -117,5 +117,6 @@ export class PuertasComponent implements OnInit{
   
   
 
+
     
 }}

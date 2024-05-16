@@ -53,7 +53,7 @@ ngOnInit(): void {
     this.luces= data;
 });
 if(!this.permitido){
-this.service2.getRequest(this.cedula).subscribe(data => {
+  this.service2.getRequest(this.cedula).subscribe(data => {
   console.log('accesos'); 
   console.log(data); 
   this.luz1=data.luz1;
