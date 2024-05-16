@@ -16,8 +16,10 @@ import { AlertService } from '../alert.service';
   styleUrl: './barra-admin-local.component.css'
 })
 export class BarraAdminLocalComponent implements OnInit {
+
   showAlert=false;
   @Input() action: string="";
+  currentComponent: string = "";
   constructor(private obtenerEstado:  SolicitudesAlarmaService, private obtenerEstadoAlert:  AlertService, private router: Router){
 
   }
@@ -45,7 +47,7 @@ export class BarraAdminLocalComponent implements OnInit {
   
   }
 
-  currentComponent: string = "";
+  
 
   showComponent(action: string): void {
     this.currentComponent = action;
