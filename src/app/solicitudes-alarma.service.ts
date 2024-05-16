@@ -33,9 +33,12 @@ export class SolicitudesAlarmaService {
   postRequest(data: any) {
     return this.http.post('http://localhost:8081/alarma/actualizarEstadoAlarma', data);
   }
+  postRequest2(data: any) {
+    return this.http.post('http://localhost:8081/alarma/actualizarEnableAlarma', data);
+  }
 
   getRequest() {
-    return this.http.get<Alarma>('http://localhost:8081/alarma/recibirEstadoAlarma');
+    return this.http.get<Alarma>('http://localhost:8081/alarma/recibirInfoAlarma');
   }
 
   getalarmState(): Observable<number> {
@@ -45,7 +48,7 @@ export class SolicitudesAlarmaService {
 export class Alarma{
   
   estado_alarma: any;
- 
+ enablee:any;
 }
 
 

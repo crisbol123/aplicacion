@@ -29,6 +29,19 @@ export class PuertasComponent implements OnInit{
 
   ngOnInit(): void {
     this.getData();
+
+    if(!this.permitido){
+
+      this.service2.getRequest(this.cedula).subscribe(data => {
+        console.log('accesos'); 
+        console.log(data); 
+        this.puerta1=data.puerta1;
+        this.puerta2=data.puerta2;
+        this.puerta3=data.puerta3;
+        
+      }
+      );
+    }
   }
 
   getData(): void {
@@ -104,16 +117,5 @@ export class PuertasComponent implements OnInit{
   
   
 
-    if(!this.permitido){
-
-  this.service2.getRequest(this.cedula).subscribe(data => {
-    console.log('accesos'); 
-    console.log(data); 
-    this.puerta1=data.puerta1;
-    this.puerta2=data.puerta2;
-    this.puerta3=data.puerta3;
     
-  }
-  );
-}
 }}
