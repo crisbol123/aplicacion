@@ -10,6 +10,7 @@ import { PuertasComponent } from '../puertas/puertas.component';
 import { TemperaturaComponent } from '../temperatura/temperatura.component';
 
 
+
 @Component({
     selector: 'app-interfaz-principal',
     standalone: true,
@@ -23,6 +24,8 @@ mostrarComponente:boolean = false;
 mostrarComponente2:boolean = false;
 mostrarComponente3:boolean = false;
 mostrarComponente4:boolean = false;
+
+
 cambiarVisibilidad(){
 
   this.mostrarComponente=!this.mostrarComponente;
@@ -40,4 +43,6 @@ cambiarVisibilidad4(){
 
   this.mostrarComponente4=!this.mostrarComponente4;
 }
+
+
 }
