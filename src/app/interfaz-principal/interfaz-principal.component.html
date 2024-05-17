@@ -51,6 +51,32 @@
 
     
   </div>
+  <h2 class="text-center">Consumos</h2>
+  <div class="container">
+    
+  
+    <table class="table table-bordered mt-4">
+      <thead>
+        <tr>
+          <th scope="col">Elemento</th>
+          <th scope="col">Consumo [kW]</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--<tr class="fila" (click)="logout()" style="cursor: pointer" >-->
+          <tr *ngFor="let consumo of consumos">  
+            <td>luces</td>
+            <td>{{ consumo}}</td>
+            
+          </tr> 
+          <tr>
+          <td>alarma</td>
+          <td>{{this.consumoA}} </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 
  
   
