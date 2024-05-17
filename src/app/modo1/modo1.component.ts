@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiciosService } from '../servicios/servicio-modo1/servicios.service';
 import { BarraAdminLocalComponent } from '../barra-admin-local/barra-admin-local.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-modo1',
   standalone: true,
-  imports: [BarraAdminLocalComponent],
+  imports: [BarraAdminLocalComponent, CommonModule, FormsModule],
   templateUrl: './modo1.component.html',
-  styleUrl: './modo1.component.css'
+  styleUrls: ['./modo1.component.css']
 })
-
 export class Modo1Component implements OnInit {
   respuesta: any;
   textBoton: string = '';
@@ -25,6 +26,7 @@ export class Modo1Component implements OnInit {
     this.service.getRequest().subscribe(
       (data) => {
         this.respuesta = data.value;
+        this.estado = this.respuesta; // Sincroniza el estado local con el del servidor
         this.actualizarTextoBoton();
       },
       (error) => {
@@ -38,6 +40,8 @@ export class Modo1Component implements OnInit {
 
     this.service.postRequest(datos).subscribe(
       () => {
+        // Actualiza el texto del botón después de una solicitud exitosa
+        this.actualizarTextoBoton();
       },
       (error) => {
         console.log('Error al enviar datos:', error);
@@ -46,19 +50,11 @@ export class Modo1Component implements OnInit {
   }
 
   boton(): void {
-    this.estado = this.estado == 0 ? 1 : 0; // Cambiar entre 0 y 1
+    this.estado = this.estado === 0 ? 2 : 0; // Cambiar entre 0 y 2
     this.postData();
-    this.getData();
   }
 
   actualizarTextoBoton(): void {
-    if (this.respuesta == 1) {
-      this.textBoton = 'Desactivar';
-    } else {
-      this.textBoton = 'Activar';
-    }
-  
+    this.textBoton = this.estado === 2 ? 'Desactivar' : 'Activar';
   }
-  
 }
-
