@@ -17,8 +17,9 @@
   
 
 <div class="cuerpo">
- 
+
   <h1>Smart Home</h1>
+  
 
   <nav class="navbar navbar-expand-lg " style="background-color: #e3f2fd;" >
       <div class="container-fluid">
@@ -33,13 +34,13 @@
                 Admnisitradores Locales
               </a>
               <ul class="dropdown-menu">
-                <li><a href="/crear-admin-local" routerLinkActive="active" ariaCurrentWhenActive="page" class="dropdown-item" >Crear</a></li>
+                <li><a (click)="crear()" routerLinkActive="active"  ariaCurrentWhenActive="page" class="itemsss dropdown-item" >Crear</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/read-admin-local">Buscar</a></li>
+                <li><a class="itemsss dropdown-item" (click)="buscar()">Buscar</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/update-admin-local">Actualizar</a></li>
+                <li><a class="itemsss dropdown-item" (click)="actualizar()">Actualizar</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/delete-admin-local">Eliminar</a></li>
+                <li><a class="itemsss dropdown-item" (click)="eliminar()">Eliminar</a></li>
               </ul>
             </li>
             
@@ -64,4 +65,5 @@
   <button routerLink="/delete-admin-local">Eliminar</button>
 </nav>
 -->
+<div class ="alert alert-primary alerta" role="alert" *ngIf="showAlert">se nos metieron</div>
 <router-outlet></router-outlet>

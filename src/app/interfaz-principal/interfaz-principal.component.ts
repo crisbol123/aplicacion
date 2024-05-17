@@ -8,6 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { AlarmaComponent } from "../alarma/alarma.component";
 import { PuertasComponent } from '../puertas/puertas.component';
 import { TemperaturaComponent } from '../temperatura/temperatura.component';
+import { SolicitudesAlarmaService } from '../solicitudes-alarma.service';
+import { AlertService } from '../alert.service';
 
 
 @Component({
@@ -23,6 +25,10 @@ mostrarComponente:boolean = false;
 mostrarComponente2:boolean = false;
 mostrarComponente3:boolean = false;
 mostrarComponente4:boolean = false;
+showAlert=false;
+
+constructor(){}
+
 cambiarVisibilidad(){
 
   this.mostrarComponente=!this.mostrarComponente;
@@ -40,4 +46,6 @@ cambiarVisibilidad4(){
 
   this.mostrarComponente4=!this.mostrarComponente4;
 }
+
+
 }
