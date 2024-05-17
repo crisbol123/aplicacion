@@ -20,5 +20,7 @@ h1{
     position:fixed;
     max-width: 500px;
     top:55px;
-    right:24px;
+    left: 45%;
+    background-color: red;
+    color: white; 
 }

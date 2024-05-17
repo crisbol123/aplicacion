@@ -19,4 +19,7 @@ export class ServiciosService {
   postRequest(data: any): Observable<any>{
     return this.http.post('http://localhost:8081/modo1/post', data);
   }
+  postRequest2(data: any): Observable<any>{
+    return this.http.post('http://localhost:8081/modo1/postModo0', data);
+  }
 }

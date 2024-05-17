@@ -9,12 +9,15 @@ import { Observable, BehaviorSubject } from 'rxjs';
 })
 export class SolicitudesAlarmaService {
   private _alarmState$: BehaviorSubject<number>;
+  private tiempo_alarma$: BehaviorSubject<number>;
 
   constructor(private http: HttpClient) {
     this._alarmState$ = new BehaviorSubject<number>(0);
+    this.tiempo_alarma$ = new BehaviorSubject<number>(0);
 
     this.getRequest().subscribe((data) => {
       this._alarmState$.next(data.estado_alarma);
+      this.tiempo_alarma$.next(data.tiempoactivado);
     });
 
     this.startPolling();
@@ -25,6 +28,9 @@ export class SolicitudesAlarmaService {
       this.getRequest().subscribe((data) => {
         if (this._alarmState$.getValue() !== data.estado_alarma) {
           this._alarmState$.next(data.estado_alarma);
+        }
+        if (this.tiempo_alarma$ !== data.tiempoactivado) {
+          this.tiempo_alarma$.next(data.tiempoactivado);
         }
       });
     }, 2000); 
@@ -44,11 +50,15 @@ export class SolicitudesAlarmaService {
   getalarmState(): Observable<number> {
     return this._alarmState$.asObservable();
   }
+  getTime(): Observable<number> {
+    return this.tiempo_alarma$.asObservable();
+  }
 }
 export class Alarma{
   
   estado_alarma: any;
  enablee:any;
+ tiempoactivado:any;
 }
 
 

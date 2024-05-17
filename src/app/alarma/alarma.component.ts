@@ -68,6 +68,12 @@ onSwitchChange(checked:boolean) {
 
   this.switchState = checked ? 1 : 0;
   const data = { enable: this.switchState};
+  if(this.switchState==0){
+    const data = { estado: 0}; // Datos que quieres enviar en la solicitud
+    this.service.postRequest(data).subscribe(response => {
+    console.log(response);
+});
+  }
   this.service.postRequest2(data).subscribe(response => {
     console.log(response);
 });

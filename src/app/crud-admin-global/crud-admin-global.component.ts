@@ -34,7 +34,7 @@ export class CRUDAdminGlobalComponent implements OnInit {
   
   setTimeout(() => {
     this.showAlert=false;
-  }, 1000);
+  }, 3000);
       
   });
      

@@ -5,6 +5,7 @@ import { SolicitudesPhpLuzService } from '../solicitudes-php-luz.service';
 import { CommonModule } from '@angular/common';
 import { ConsultasAccesosService } from '../consultas-accesos.service';
 import { Input } from '@angular/core';
+import { ServiciosService } from '../servicios/servicio-modo1/servicios.service';
 @Component({
   selector: 'app-luces',
   standalone: true,
@@ -32,16 +33,32 @@ export class LucesComponent implements OnInit {
   estado2 =0;
   estado3 =0;
   
-  constructor(private service: SolicitudesPhpLuzService,private service2: ConsultasAccesosService) {}
+  constructor(private service: SolicitudesPhpLuzService,private service2: ConsultasAccesosService, private service3:ServiciosService) {}
 
   cambiarEstado(luzo:Luz){
     
       console.log(luzo);
       luzo.estadoluces=!luzo.estadoluces;
-      const data = { estado: luzo.estadoluces, id_bombillo: luzo.id_bombillo }; // Datos que quieres enviar en la solicitud
+     
+      
+     
+
+     
+    const data = { estado: luzo.estadoluces, id_bombillo: luzo.id_bombillo };
       this.service.postRequest(data).subscribe(response => {
       console.log(response);
+
+      const datos = { estado: 0 };
+  
+      this.service3.postRequest2(datos).subscribe(response => {
+        console.log(response);
+    });
+      
   });
+
+
+  
+  
   }
 
 ngOnInit(): void {
