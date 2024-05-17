@@ -1,20 +1,20 @@
 <div class="puertas-componente">
   <div class="puerta">
-    <img [src]="textBoton1 === 'Abrir' ? 'assets/puertaCerrada.png' : 'assets/puertaAbierta.png'" alt="Puerta 1">
+    <img [src]="textBoton1 === 'Abrir' ? 'assets/puertaCerrada.png' : 'assets/puertaAbierta1.png'" alt="Puerta 1">
     <p>Puerta 1</p>
     @if(puerta1==1){
     <button (click)="togglePuerta(1)">{{textBoton1}}</button>
   }
   </div>
   <div class="puerta">
-    <img [src]="textBoton2 === 'Abrir' ? 'assets/puertaCerrada.png' : 'assets/puertaAbierta.png'" alt="Puerta 2">
+    <img [src]="textBoton2 === 'Abrir' ? 'assets/puertaCerrada.png' : 'assets/puertaAbierta1.png'" alt="Puerta 2">
     <p>Puerta 2</p>
     @if(puerta2==1){
     <button (click)="togglePuerta(2)">{{textBoton2}}</button>
     }
   </div>
   <div class="puerta">
-    <img [src]="textBoton3 === 'Abrir' ? 'assets/puertaCerrada.png' : 'assets/puertaAbierta.png'" alt="Puerta 3">
+    <img [src]="textBoton3 === 'Abrir' ? 'assets/puertaCerrada.png' : 'assets/puertaAbierta1.png'" alt="Puerta 3">
     <p>Puerta 3</p>
     @if(puerta3==1){
     <button (click)="togglePuerta(3)">{{textBoton3}}</button>
