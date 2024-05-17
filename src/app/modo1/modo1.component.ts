@@ -50,11 +50,7 @@ export class Modo1Component implements OnInit {
   }
 
   boton(): void {
-<<<<<<< Updated upstream
-    this.estado = this.estado == 0 ? 2 : 0; // Cambiar entre 0 y 1
-=======
     this.estado = this.estado === 0 ? 2 : 0; // Cambiar entre 0 y 2
->>>>>>> Stashed changes
     this.postData();
   }
 
