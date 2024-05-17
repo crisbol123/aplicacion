@@ -14,6 +14,7 @@ export class AdjustTimeComponent implements OnInit{
   subidaValue: number = 0;
   bajadaValue: number = 0;
 
+
   constructor(private service: ServicioAdjustTimeService) {}
 
   ngOnInit(): void {
@@ -23,8 +24,8 @@ export class AdjustTimeComponent implements OnInit{
   getData(): void {
     this.service.getRequest().subscribe(
       (data) => {
-        this.subidaValue = data.columna1;
-        this.bajadaValue = data.columna2;
+        this.subidaValue = data.columna1/1000;
+        this.bajadaValue = data.columna2/1000;
       },
       (error) => {
         console.error('Error al obtener datos:', error);
@@ -39,9 +40,10 @@ export class AdjustTimeComponent implements OnInit{
   }
 
   postData(): void {
+
     const datos = { 
-      columna1: this.subidaValue,
-      columna2: this.bajadaValue
+      columna1: this.subidaValue*1000,
+      columna2: this.bajadaValue*1000
      };
 
     this.service.postRequest(datos).subscribe(
