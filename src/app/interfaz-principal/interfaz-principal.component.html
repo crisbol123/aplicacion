@@ -64,8 +64,8 @@
       </thead>
       <tbody>
         <!--<tr class="fila" (click)="logout()" style="cursor: pointer" >-->
-          <tr *ngFor="let consumo of consumos">  
-            <td>luces</td>
+          <tr *ngFor="let consumo of consumos; let i = index">  
+            <td>luz {{i+1}}</td>
             <td>{{ consumo}}</td>
             
           </tr> 

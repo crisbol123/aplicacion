@@ -55,13 +55,8 @@ router.post('/post', async (req, res) => {
 
             res.json({ estado: "Mensaje insertado correctamente en la base de datos" });
         } catch (error) {
-            console.error("Error al insertar mensaje en la base de datos:", error);
-            res.status(500).json({ error: "Error interno del servidor" });
-        } finally {
-            if (connection) {
-                connection.release();
-            }
-        }
+            console.error("Error al insertar mensaje en la base de datos:", error); 
+        } 
     });
 
 router.get('/get', async (req, res) => {
