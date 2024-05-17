@@ -38,7 +38,7 @@ showAlert= false;
   
   setTimeout(() => {
     this.showAlert=false;
-  }, 1000);
+  }, 3000);
       
   });
      

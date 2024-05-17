@@ -39,6 +39,33 @@ const router = express.Router();
           }
       });
 
+      router.post('/postModo0', async (req, res) => {
+        try {
+            const connection = await pool.getConnection();
+    
+            // Obtener el estado del cuerpo de la solicitud
+            const estado = req.body;
+            //console.log("Motherfucker: ",estado);
+    
+            if (estado == undefined) {
+                res.status(400).json({ error: "El mensaje no puede estar vacío" });
+                return;
+            }
+            //console.log("Hello motherfucker");
+            // Realizar la actualización en la base de datos
+            const [results, fields] = await connection.query("UPDATE modos SET estadohogar = ? WHERE id = 1", [estado.estado]);
+
+            res.json({ estado: "Mensaje insertado correctamente en la base de datos" });
+        } catch (error) {
+            console.error("Error al insertar mensaje en la base de datos:", error);
+            res.status(500).json({ error: "Error interno del servidor" });
+        } finally {
+            if (connection) {
+                connection.release();
+            }
+        }
+    });
+
         router.get('/get', async (req, res) => {
             try {
                 const [rows, fields] = await connection.query("SELECT estadohogar FROM modos");
