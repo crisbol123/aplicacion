@@ -27,29 +27,7 @@ mostrarComponente3:boolean = false;
 mostrarComponente4:boolean = false;
 showAlert=false;
 
-constructor(private obtenerEstado:SolicitudesAlarmaService,private obtenerEstadoAlert: AlertService){}
-ngOnInit(): void {
-   
-     this.obtenerEstado.getalarmState().subscribe((state) => {
-       if(state==1){
-      
-   this.obtenerEstadoAlert.showAlert();
-       }
-   
-     });
-   
-       this.obtenerEstadoAlert.alert$.subscribe((res)=>
-       {this.showAlert= true;
-   
-   setTimeout(() => {
-     this.showAlert=false;
-   }, 1000);
-       
-   });
-      
-   
-   
-   }
+constructor(){}
 
 cambiarVisibilidad(){
 

@@ -6,7 +6,9 @@ h1{
     cursor: default;
     text-indent: 15px;
 }
-
+.itemsss{
+    cursor: pointer;
+}
 .cuerpo{
     background-color: #e3f2fd;
 }
@@ -15,8 +17,14 @@ h1{
     cursor: default;
 }
 
+
 .dropdown:hover > .dropdown-menu{
     display: block;
     margin-top: .125em;
 }
-
+.alert{
+    position:fixed;
+    max-width: 500px;
+    top:55px;
+    right:24px;
+}
