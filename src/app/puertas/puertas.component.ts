@@ -26,7 +26,7 @@ export class PuertasComponent implements OnInit{
   textBoton3: string = '';
   
 
-  constructor(private service: PuertasService, private service2: ConsultasAccesosService,service3:ServiciosService) {}
+  constructor(private service: PuertasService, private service2: ConsultasAccesosService,private service3:ServiciosService) {}
 
   ngOnInit(): void {
     this.getData();
@@ -90,11 +90,19 @@ export class PuertasComponent implements OnInit{
       () => {
         console.log('Datos de puertas actualizados correctamente');
         this.getData(); // Actualizar datos después del envío exitoso
+
+        const datos = { estado: 0 };
+
+        this.service3.postRequest2(datos).subscribe(response => {
+          console.log(response);
+        });
       },
       (error) => {
         console.error('Error al enviar datos:', error);
       }
     );
+
+
 
     /*Cuando se va a hacer un post de datos y el modo seguro esta activo, se tiene que pasar
     el modo a un modo normal, es decir al modo 0, en este caso toca obtener el estado del modo,si es 2
