@@ -22,7 +22,7 @@ export class TemperaturaComponent implements  OnInit{
   temp= {
     temp_Real:'',
     Ref:'',
-    enablee: ''
+    enable1: ''
   };
   currentTemperature: number = 25; // Temperatura actual del ambiente
   desiredTemperature: number = 20; // Temperatura deseada del aire acondicionado
@@ -37,7 +37,7 @@ export class TemperaturaComponent implements  OnInit{
     //Asignar Valores iniciales
     this.service.get_data().subscribe(data => {
       console.log(data); 
-      this.switchState= data.enablee;
+      this.switchState= data.enable1;
       this.isDisabled=!this.switchState;
       this.currentTemperature= data.valormedido;
       this.desiredTemperature=data.referencia;
@@ -70,7 +70,7 @@ export class TemperaturaComponent implements  OnInit{
     }else{
       enable2='0';
     }
-    const datos={ referencia: this.desiredTemperature, enablee: enable2}
+    const datos={ referencia: this.desiredTemperature, enable1: enable2}
     this.service.update_data(datos).subscribe(
       (response) => {
         //console.log(response); 
