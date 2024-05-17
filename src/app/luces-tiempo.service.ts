@@ -41,6 +41,7 @@ export class LucesTiempoService {
   getRequest(): Observable<luces[]> {
     return this.http.get<luces[]>('http://localhost:8081/luces/recibirTiempo');
   }
+  
   getTime(): Observable<number[]> {
     return this.tiempo_luces$.asObservable();
   }

@@ -24,7 +24,7 @@ const router = express.Router();
           console.log(rta[0]);
           let data_rta =arreglarData2(rta[0]);
           res.status(200).send(data_rta);
-          })
+          });
 
 
           router.get('/recibirTiempo', async (req, res)=>{
@@ -35,11 +35,14 @@ const router = express.Router();
             let data_rta =arreglarData(rta[0]);
             console.log(data_rta);
             res.status(200).send(data_rta);
-            })
-      connection.release();
+            });
+
+
+            connection.release();
     } catch (error) {
       console.error('Error connecting to the MySQL server:', error);
     }
+   
   })();
 
   function arreglarData(data){
