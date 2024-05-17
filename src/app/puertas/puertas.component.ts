@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PuertasService } from '../servicios/servicio-puertas/puertas.service';
 import { ConsultasAccesosService } from '../consultas-accesos.service';
 import { Input } from '@angular/core';
+import { ServiciosService } from '../servicios/servicio-modo1/servicios.service';
 @Component({
   selector: 'app-puertas',
   standalone: true,
@@ -25,7 +26,7 @@ export class PuertasComponent implements OnInit{
   textBoton3: string = '';
   
 
-  constructor(private service: PuertasService, private service2: ConsultasAccesosService) {}
+  constructor(private service: PuertasService, private service2: ConsultasAccesosService,service3:ServiciosService) {}
 
   ngOnInit(): void {
     this.getData();
@@ -33,8 +34,8 @@ export class PuertasComponent implements OnInit{
     if(!this.permitido){
 
       this.service2.getRequest(this.cedula).subscribe(data => {
-        console.log('accesos'); 
-        console.log(data); 
+        //console.log('accesos'); 
+        //console.log(data); 
         this.puerta1=data.puerta1;
         this.puerta2=data.puerta2;
         this.puerta3=data.puerta3;
@@ -50,9 +51,9 @@ export class PuertasComponent implements OnInit{
         this.estadoPuerta1 = data[0].estado;
         this.estadoPuerta2 = data[1].estado;
         this.estadoPuerta3 = data[2].estado;
-        console.log(this.estadoPuerta1);
-        console.log(this.estadoPuerta2);
-        console.log(this.estadoPuerta3);
+        //console.log(this.estadoPuerta1);
+        //console.log(this.estadoPuerta2);
+        //console.log(this.estadoPuerta3);
         this.actualizarTextoBoton();
       },
       (error) => {
@@ -94,6 +95,11 @@ export class PuertasComponent implements OnInit{
         console.error('Error al enviar datos:', error);
       }
     );
+
+    /*Cuando se va a hacer un post de datos y el modo seguro esta activo, se tiene que pasar
+    el modo a un modo normal, es decir al modo 0, en este caso toca obtener el estado del modo,si es 2
+    entra en una declaracion que permite........
+    */
   }
 
   actualizarTextoBoton(): void {
@@ -113,10 +119,5 @@ export class PuertasComponent implements OnInit{
       this.textBoton3 = 'Abrir';
     } else {
       this.textBoton3 = 'Cerrar';
-    }
-  
-  
-
-
-    
+    } 
 }}
