@@ -48,6 +48,7 @@ export class AdjustTimeComponent implements OnInit{
 
     this.service.postRequest(datos).subscribe(
       () => {
+        console.log(datos);
       },
       (error) => {
         console.log('Error al enviar datos:', error);

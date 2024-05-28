@@ -25,14 +25,12 @@ router.post('/post', async (req, res) => {
 
     // Realizar la actualización en la base de datos
     res.json({ mensaje: "Mensaje actualizado correctamente en la base de datos" });
+    connection.release();
   } catch (error) {
     console.error("Error al actualizar mensaje en la base de datos:", error);
     res.status(500).json({ error: "Error interno del servidor" });
-  } finally {
-    if (connection) {
-      connection.release();
-    }
-  }
+  } 
+   
 });
 
 
@@ -54,6 +52,7 @@ router.post('/post', async (req, res) => {
             const [results, fields] = await connection.query("UPDATE modos SET estadohogar = ? WHERE id = 1", [estado.estado]);
 
             res.json({ estado: "Mensaje insertado correctamente en la base de datos" });
+            connection.release();
         } catch (error) {
             console.error("Error al insertar mensaje en la base de datos:", error); 
         } 
@@ -70,14 +69,11 @@ router.get('/get', async (req, res) => {
     } else {
       res.json({ mensaje: 'No se encontraron resultados' });
     }
+    connection.release();
   } catch (error) {
     console.error('Error al conectar con la base de datos:', error);
     res.status(500).json({ error: 'Error interno del servidor' });
-  } finally {
-    if (connection) {
-      connection.release();
-    }
-  }
+  } 
 });
 
 
