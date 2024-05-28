@@ -27,15 +27,7 @@ const router = express.Router();
           });
 
 
-          router.get('/recibirTiempo', async (req, res)=>{
-            let alarma =req.query;
-            query = "select t1.id_bombillo, t1.tiempoactivado FROM luces t1 INNER JOIN (SELECT id_bombillo, MAX(id) AS max_id FROM luces GROUP BY id_bombillo) t2 ON t1.id_bombillo = t2.id_bombillo AND t1.id = t2.max_id ORDER BY t1.id_bombillo";
-            let rta = await connection.query(query, [alarma.id]);
-            console.log(rta[0]);
-            let data_rta =arreglarData(rta[0]);
-            console.log(data_rta);
-            res.status(200).send(data_rta);
-            });
+     
 
 
             connection.release();

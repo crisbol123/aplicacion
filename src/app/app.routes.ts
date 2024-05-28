@@ -21,6 +21,8 @@ import { AdjustTimeComponent } from './adjust-time/adjust-time.component';
 import { PuertasComponent } from './puertas/puertas.component';
 import { InterfazInvitadoComponent } from './interfaz-invitado/interfaz-invitado.component';
 
+
+
 export const routes: Routes = [
 
   { path: 'crear-admin-local', component: CrearAdminLocalComponent },
@@ -44,7 +46,7 @@ export const routes: Routes = [
   {path: 'adjust-time',component: AdjustTimeComponent},
   {path: 'puertas',component:PuertasComponent},
   {path: 'interfaz-invitado',component:InterfazInvitadoComponent}
-
+ 
 ];
 
 

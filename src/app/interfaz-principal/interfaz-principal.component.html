@@ -51,31 +51,35 @@
 
     
   </div>
-  <h2 class="text-center"></h2>
-  <div class="container">
-    
+
   
-    <table class="table table-bordered mt-4">
-      <thead>
-        <tr>
-          <th scope="col">Elemento</th>
-          <th scope="col">Consumo [kW]</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!--<tr class="fila" (click)="logout()" style="cursor: pointer" >-->
-          <tr *ngFor="let consumo of consumos; let i = index">  
-            <td>luz {{i+1}}</td>
-            <td>{{ consumo}}</td>
-            
-          </tr> 
-          <tr>
-          <td>alarma</td>
-          <td>{{this.consumoA}} </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="container mt-5">
+    <div class="d-flex justify-content-center">
+      <div class="dropdown mr-3">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          Seleccionar Mes
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" (click)="this.m=0; mesSeleccionado='Enero'">Enero</a></li>
+          <li><a class="dropdown-item" (click)="this.m=1; mesSeleccionado='Febrero'">Febrero</a></li>
+          <li><a class="dropdown-item" (click)="this.m=2; mesSeleccionado='Marzo'">Marzo</a></li>
+          <li><a class="dropdown-item" (click)="this.m=3; mesSeleccionado='Abril'">Abril</a></li>
+          <li><a class="dropdown-item" (click)="this.m=4; mesSeleccionado='Mayo'">Mayo</a></li>
+          <li><a class="dropdown-item" (click)="this.m=5; mesSeleccionado='Junio'">Junio</a></li>
+          <li><a class="dropdown-item" (click)="this.m=6; mesSeleccionado='Julio'">Julio</a></li>
+          <li><a class="dropdown-item" (click)="this.m=7; mesSeleccionado='Agosto'">Agosto</a></li>
+          <li><a class="dropdown-item" (click)="this.m=8; mesSeleccionado='Septiembre'">Septiembre</a></li>
+          <li><a class="dropdown-item" (click)="this.m=9; mesSeleccionado='Octubre'">Octubre</a></li>
+          <li><a class="dropdown-item" (click)="this.m=10; mesSeleccionado='Noviembre'">Noviembre</a></li>
+          <li><a class="dropdown-item" (click)="this.m=11; mesSeleccionado='Diciembre'">Diciembre</a></li>
+        </ul>
+      </div >
+      <div class="mx-3"></div> 
+  <h2 class="mes">{{ mesSeleccionado }}</h2>
+    </div>
   </div>
+  
+  <app-consumos [consumos]="consumos[m]"></app-consumos>
 
 
  

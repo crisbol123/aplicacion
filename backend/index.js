@@ -1,6 +1,7 @@
 var cors = require('cors');
 const express = require('express');
 const lucesR= require("./routes/luces")
+const tiemposR= require("./routes/tiempos")
 const login= require("./routes/login")
 const accesosR= require("./routes/accesos")
 const alarmaR= require("./routes/alarma")
@@ -19,6 +20,7 @@ app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use("/luces",lucesR);
+app.use("/tiempos",tiemposR);
 app.use("/accesos",accesosR);
 app.use("/alarma",alarmaR);
 app.use("/modo1",modo1);
