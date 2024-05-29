@@ -51,7 +51,7 @@ export class LucesComponent implements OnInit {
       const datos = { estado: 0 };
   
       this.service3.postRequest2(datos).subscribe(response => {
-        console.log(response);
+      console.log(response);
     });
       
   });

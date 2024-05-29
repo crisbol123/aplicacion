@@ -6,7 +6,7 @@ const router = express.Router();
 (async () =>{
     try {
         const connection = await pool.getConnection();
-        console.log('Connected to the MySQL server.');
+        //console.log('Connected to the MySQL server.');
         
         router.post('/post', async (req, res) => {
             let connection;
@@ -52,8 +52,8 @@ const router = express.Router();
 
             try {
                 const [rows, fields] = await connection.query("SELECT id,estado FROM puertas");
-                console.log('Conexión exitosa con la base de datos');
-                console.log(rows);
+                //console.log('Conexión exitosa con la base de datos');
+                //console.log(rows);
                 if (rows.length > 0) {
                     const value = rows; // Suponiendo que "estadohogar" es el nombre de la columna que deseas obtener
                     //console.log(value.id);

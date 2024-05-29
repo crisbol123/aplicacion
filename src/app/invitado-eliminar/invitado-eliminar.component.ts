@@ -1,45 +1,41 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { BarraAdminLocalComponent } from '../barra-admin-local/barra-admin-local.component';
-import { ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, NgForm } from '@angular/forms';
-import { InvitadoBuscarComponent } from '../invitado-buscar/invitado-buscar.component';
-import { CedulaServiceService } from '../servicios/cedula-service.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { EliminarInvitadoService } from '../servicios/servicio-invitado-eliminar/eliminar-invitado.service';
+import { BarraAdminLocalComponent } from '../barra-admin-local/barra-admin-local.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-invitado-eliminar',
   standalone: true,
-  imports: [BarraAdminLocalComponent,CommonModule,FormsModule],
+  imports: [BarraAdminLocalComponent, CommonModule, FormsModule],
   templateUrl: './invitado-eliminar.component.html',
   styleUrl: './invitado-eliminar.component.css'
 })
-export class InvitadoEliminarComponent implements OnInit{
+export class InvitadoEliminarComponent implements OnInit {
   cedula: string = '';
   submitted: boolean = false;
-  mensaje: string = "";
+  mensaje: string = '';
 
-  constructor(private service: EliminarInvitadoService) { }
+  constructor(private route: ActivatedRoute, private service: EliminarInvitadoService) {}
 
   ngOnInit(): void {
+    // Obtener la cédula de los parámetros de la URL
+    this.route.paramMap.subscribe(params => {
+      this.cedula = params.get('cedula') || '';
+    });
   }
 
   eliminarUsuario() {
     this.submitted = true;
-    // Aquí puedes manejar la lógica para enviar los datos del formulario
     if (this.submitted) {
-      // Si el formulario es válido, puedes continuar con el envío de datos o cualquier otra acción
-      //console.log(this.cedula);
       this.postData();
-
     } else {
-      // Si el formulario no es válido, no hagas nada o muestra un mensaje de error
       console.log('El formulario contiene errores.');
     }
   }
 
   postData(): void {
-
     const datos = { cedula: this.cedula };
 
     this.service.postRequest(datos).subscribe(
@@ -52,5 +48,6 @@ export class InvitadoEliminarComponent implements OnInit{
       }
     );
   }
-
 }
+
+

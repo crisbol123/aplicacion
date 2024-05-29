@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { CrearAdminLocalComponent } from './crear-admin-local/crear-admin-local.component';
 import { ReadAdminLocalComponent } from './read-admin-local/read-admin-local.component';
 import { UpdateAdminLocalComponent } from './update-admin-local/update-admin-local.component';
@@ -13,7 +13,7 @@ import { InvitadoCrearComponent } from './invitado-crear/invitado-crear.componen
 import { InvitadoBuscarComponent } from './invitado-buscar/invitado-buscar.component';
 import { InvitadoActualizarComponent } from './invitado-actualizar/invitado-actualizar.component';
 import { compileClassDebugInfo } from '@angular/compiler';
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { InvitadoEliminarComponent } from './invitado-eliminar/invitado-eliminar.component';
 import { Modo1Component } from './modo1/modo1.component';
 import { Modo2Component } from './modo2/modo2.component';
@@ -40,13 +40,18 @@ export const routes: Routes = [
   {path: 'invitado-crear',component:InvitadoCrearComponent},
   {path: 'invitado-buscar',component:InvitadoBuscarComponent},
   {path: 'invitado-actualizar',component: InvitadoActualizarComponent},
-  {path: 'invitado-eliminar',component: InvitadoEliminarComponent},
+  {path: 'invitado-eliminar/:cedula',component: InvitadoEliminarComponent},
   {path: 'modo1',component: Modo1Component},
   {path: 'modo2',component: Modo2Component},
   {path: 'adjust-time',component: AdjustTimeComponent},
   {path: 'puertas',component:PuertasComponent},
   {path: 'interfaz-invitado',component:InterfazInvitadoComponent}
+<<<<<<< Updated upstream
  
+=======
+>>>>>>> Stashed changes
 ];
+
+
 
 

@@ -1,0 +1,30 @@
+/* Estilos para el botón */
+.custom-button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition-duration: 0.4s;
+}
+  
+.custom-button:hover {
+    background-color: #0056b3;
+}
+  
+/* Estilos para la fila seleccionada */
+tr.selected {
+    background-color: #ef85b5;
+}
+  
+/* Estilos para la fila destacada (al pasar el mouse) */
+tr.highlighted {
+    background-color: #65d746;
+}
+
