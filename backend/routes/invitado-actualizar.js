@@ -25,12 +25,13 @@ router.post('/post', async (req, res) => {
         }
 
         // Realizar la actualización en la base de datos
-        const query2 = "UPDATE smart_home.invitado SET nombre = ?, contrasena = UNHEX(SHA2(?, 256)), numero = ?, correo = ?, alarma = ?, luz1 = ?, luz2 = ?, luz3 = ?, puerta1 = ?, puerta2 = ?, puerta3 = ?, temperatura = ? WHERE cedula = ?";
+        //const query2 = "UPDATE smart_home.invitado SET nombre = ?, contrasena = UNHEX(SHA2(?, 256)), numero = ?, correo = ?, alarma = ?, luz1 = ?, luz2 = ?, luz3 = ?, puerta1 = ?, puerta2 = ?, puerta3 = ?, temperatura = ? WHERE cedula = ?";
+        const query2 = "UPDATE smart_home.invitado SET nombre = ?, numero = ?, correo = ?, alarma = ?, luz1 = ?, luz2 = ?, luz3 = ?, puerta1 = ?, puerta2 = ?, puerta3 = ?, temperatura = ? WHERE cedula = ?";
 
         const { cedula, ...restoEstado } = estado; // excluyendo la cédula
         const values = [
             restoEstado.nombre,
-            restoEstado.contrasena,
+            //restoEstado.contrasena,
             restoEstado.numero,
             restoEstado.correo,
             restoEstado.alarma,

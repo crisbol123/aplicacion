@@ -45,11 +45,7 @@ export const routes: Routes = [
   {path: 'modo2',component: Modo2Component},
   {path: 'adjust-time',component: AdjustTimeComponent},
   {path: 'puertas',component:PuertasComponent},
-  {path: 'interfaz-invitado',component:InterfazInvitadoComponent}
-<<<<<<< Updated upstream
- 
-=======
->>>>>>> Stashed changes
+  {path: 'interfaz-invitado',component:InterfazInvitadoComponent} 
 ];
 
 

@@ -21,7 +21,7 @@ export class InvitadoActualizarComponent implements OnInit {
   user = {
     alarma: 0,
     cedula: '',
-    contrasena: '',
+    //contrasena: '',
     correo: '',
     luz1: 0,
     luz2: 0,

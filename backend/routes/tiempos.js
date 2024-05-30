@@ -4,7 +4,7 @@ const pool = require('../connection');
 const router = express.Router();
 
 (async () => {
-    try {
+    /*try {
       const connection = await pool.getConnection();
       console.log('Connected to the MySQL server.');
    
@@ -25,7 +25,7 @@ const router = express.Router();
             connection.release();
     } catch (error) {
       console.error('Error connecting to the MySQL server:', error);
-    }
+    }*/
    
   })();
 
