@@ -28,7 +28,7 @@ export const routes: Routes = [
   { path: 'crear-admin-local', component: CrearAdminLocalComponent },
   { path: 'read-admin-local', component: ReadAdminLocalComponent },
   { path: 'update-admin-local', component: UpdateAdminLocalComponent },
-  { path: 'delete-admin-local', component: DeleteAdminLocalComponent },
+  { path: 'delete-admin-local/:cedula', component: DeleteAdminLocalComponent },
   {path: 'barra-admin-local', component:BarraAdminLocalComponent} ,
   { path: 'interfaz-principal', component: InterfazPrincipalComponent },
   { path: 'luces', component: LucesComponent },

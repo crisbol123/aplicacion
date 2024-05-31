@@ -49,14 +49,15 @@ const router = express.Router();
 
         router.post('/actualizar', async (req, res)=>{
           let admin=req.body;
-          query="select cedula, nombre, contraseña, numero, correo from local where cedula=?";            
+          query="select cedula, nombre, numero, correo from local where cedula=?";            
           let rta= await connection.query(query,[admin.cedula]);    
           console.log(rta[0]);
           if(rta[0].length>0){
-            query="UPDATE local SET nombre=? , contraseña=UNHEX(SHA2(?, 256)) , numero=? , correo=? WHERE cedula=?"
+            //query="UPDATE local SET nombre=? , contraseña=UNHEX(SHA2(?, 256)) , numero=? , correo=? WHERE cedula=?"
+            query="UPDATE local SET nombre=?, numero=? , correo=? WHERE cedula=?"
             //UPDATE `local` SET `nombre`='Cristian',`contraseña`='bombom',`numero`='3135489',`correo`='unicauca' WHERE `cedula`='1022579'
             
-            rta= await connection.query(query,[admin.nombre,admin.contraseña,admin.numero,admin.correo,admin.cedula]);
+            rta= await connection.query(query,[admin.nombre,admin.numero,admin.correo,admin.cedula]);
             res.status(200).send({message:"Se actualizo correctemente"});
            
           }else{

@@ -41,7 +41,7 @@ export class InvitadoEliminarComponent implements OnInit {
     this.service.postRequest(datos).subscribe(
       (response) => {
         this.mensaje = response.respuesta || this.mensaje;
-        console.log(this.mensaje);
+        //console.log(this.mensaje);
       },
       (error) => {
         console.log(error);
