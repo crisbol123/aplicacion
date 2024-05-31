@@ -11,18 +11,18 @@ export class TiemposService {
 
   constructor(private http: HttpClient) {
     this.tiempos$ = new BehaviorSubject<Tiempos[]>([
-      { luces:0, puertas:0, alarma: 0, ventilador: 0, esp: 0 },
-      { luces:0, puertas:0,  alarma: 0, ventilador: 0, esp: 0 },
-      { luces:0, puertas:0, alarma: 0, ventilador: 0, esp: 0 },
-      { luces:0, puertas:0, alarma: 0, ventilador: 0, esp: 0 },
-      { luces:0, puertas:0, alarma: 0, ventilador: 0, esp: 0 },
-      { luces:0, puertas:0, alarma: 0, ventilador: 0, esp: 0 },
-      { luces:0, puertas:0, alarma: 0, ventilador: 0, esp: 0 },
-      { luces:0, puertas:0, alarma: 0, ventilador: 0, esp: 0 },
-      { luces:0, puertas:0, alarma: 0, ventilador: 0, esp: 0 },
-      { luces:0, puertas:0, alarma: 0, ventilador: 0, esp: 0 },
-      {luces:0, puertas:0, alarma: 0, ventilador: 0, esp: 0 },
-      {luces:0, puertas:0, alarma: 0, ventilador: 0, esp: 0 }
+      { tluces:0, tpuertas:0, talarma: 0, tventilador: 0, tesp: 0 },
+      { tluces:0, tpuertas:0, talarma: 0, tventilador: 0, tesp: 0 },
+      { tluces:0, tpuertas:0, talarma: 0, tventilador: 0, tesp: 0 },
+      { tluces:0, tpuertas:0, talarma: 0, tventilador: 0, tesp: 0 },
+      { tluces:0, tpuertas:0, talarma: 0, tventilador: 0, tesp: 0 },
+      { tluces:0, tpuertas:0, talarma: 0, tventilador: 0, tesp: 0 },
+      { tluces:0, tpuertas:0, talarma: 0, tventilador: 0, tesp: 0 },
+      { tluces:0, tpuertas:0, talarma: 0, tventilador: 0, tesp: 0 },
+      { tluces:0, tpuertas:0, talarma: 0, tventilador: 0, tesp: 0 },
+      { tluces:0, tpuertas:0, talarma: 0, tventilador: 0, tesp: 0 },
+      { tluces:0, tpuertas:0, talarma: 0, tventilador: 0, tesp: 0 },
+      { tluces:0, tpuertas:0, talarma: 0, tventilador: 0, tesp: 0 }
     ]);
 
     this.getRequest().subscribe((data) => {
@@ -51,11 +51,11 @@ export class TiemposService {
   }
 
   private tiemposEqual(t1: Tiempos, t2: Tiempos): boolean {
-    return t1.luces === t2.luces &&
-           t1.puertas === t2.puertas &&
-           t1.alarma === t2.alarma &&
-           t1.ventilador === t2.ventilador &&
-           t1.esp === t2.esp;
+    return t1.tluces === t2.tluces &&
+           t1.tpuertas === t2.tpuertas &&
+           t1.talarma === t2.talarma &&
+           t1.tventilador === t2.tventilador &&
+           t1.tesp === t2.tesp;
   }
 
   getRequest(): Observable<Tiempos[]> {
@@ -67,9 +67,9 @@ export class TiemposService {
 }
 
 interface Tiempos {
-  luces:number;
-  puertas:number;
-  alarma: number;
-  ventilador: number;
-  esp: number;
+  tluces:number;
+  tpuertas:number;
+  talarma: number;
+  tventilador: number;
+  tesp: number;
 }
