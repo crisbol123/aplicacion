@@ -72,10 +72,15 @@ showAlert= false;
 
     this.router.navigate(['/interfaz-principal'])
   }
-  modos(){
+  modo1(){
 
     this.router.navigate(['./modo1']);
   }
+  modo2(){
+
+    this.router.navigate(['./modo2']);
+  }
+
   velocidades(){
 
     this.router.navigate(['/adjust-time'])
