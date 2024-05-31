@@ -14,7 +14,13 @@
       </thead>
       <tbody>
         <!--<tr class="fila" (click)="logout()" style="cursor: pointer" >-->
-        <tr *ngFor="let local of locales">  
+        <!--<tr *ngFor="let local of locales">-->
+          <tr *ngFor="let local of locales; let i = index"
+          (click)="selectRow(i)"
+          (mouseover)="highlightRow(i)"
+          (mouseleave)="removeHighlightRow()"
+          [class.selected]="selectedRowIndex == i"
+          [class.highlighted]="highlightedRowIndex == i"> 
           <td>{{ local.cedula }}</td>
           <td>{{ local.nombre }}</td>
           <td>{{ local.numero }}</td>
@@ -23,4 +29,7 @@
       </tbody>
     </table>
   </div>
+
+<button class="custom-button" (click)="Actualizar()">Actualizar administrador local</button>
+<button class="custom-button" (click)="Eliminar()">Eliminar administrasdor local</button>
 
