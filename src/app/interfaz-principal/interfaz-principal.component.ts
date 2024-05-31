@@ -38,11 +38,11 @@ export class InterfazPrincipalComponent implements OnInit {
     this.serviceTiempos.getTiempos().subscribe((time) => {
       this.tiempos = time;
       this.consumos = this.tiempos.map(t => ({
-        luces: parseFloat(((t.luces / 3600) * 0.24).toFixed(4)),
-        puertas: parseFloat(((t.puertas / 3600) * 8.25).toFixed(4)),
-        alarma: parseFloat(((t.alarma / 3600) * 2.4).toFixed(4)),
-        ventilador: parseFloat(((t.ventilador / 3600) * 2.16).toFixed(4)),
-        esp: parseFloat(((t.esp / 3600) * 0.4).toFixed(4))
+        tluces: parseFloat(((t.tluces / 3600) * 0.24).toFixed(4)),
+        tpuertas: parseFloat(((t.tpuertas / 3600) * 8.25).toFixed(4)),
+        talarma: parseFloat(((t.talarma / 3600) * 2.4).toFixed(4)),
+        tventilador: parseFloat(((t.tventilador / 3600) * 2.16).toFixed(4)),
+        tesp: parseFloat(((t.tesp / 3600) * 0.4).toFixed(4))
       }));
     });
   }
@@ -65,9 +65,9 @@ export class InterfazPrincipalComponent implements OnInit {
 }
 
 interface Tiempos {
-  luces: number;
-  puertas: number;
-  alarma: number;
-  ventilador: number;
-  esp: number;
+  tluces:number;
+  tpuertas:number;
+  talarma: number;
+  tventilador: number;
+  tesp: number;
 }
