@@ -1,13 +1,62 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BarraAdminLocalComponent } from '../barra-admin-local/barra-admin-local.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ServiciosService } from '../servicios/servicio-modo1/servicios.service';
 
 @Component({
   selector: 'app-modo2',
   standalone: true,
-  imports: [BarraAdminLocalComponent],
+  imports: [BarraAdminLocalComponent,CommonModule,FormsModule],
   templateUrl: './modo2.component.html',
   styleUrl: './modo2.component.css'
 })
-export class Modo2Component {
+export class Modo2Component implements OnInit{
+
+  respuesta: any;
+  textBoton: string = '';
+  estado: number = 0; // Inicialmente establecido en 0 para activar
+
+  constructor(private service: ServiciosService){}
+
+  ngOnInit(): void {
+    this.getData();
+  }
+
+  getData(): void {
+    this.service.getRequest3().subscribe(
+      (data) => {
+        this.respuesta = data.value;
+        this.estado = this.respuesta; // Sincroniza el estado local con el del servidor
+        this.actualizarTextoBoton();
+      },
+      (error) => {
+        console.error('Error al obtener datos:', error);
+      }
+    );
+  }
+
+  postData(): void {
+    const datos = { estado: this.estado };
+
+    this.service.postRequest3(datos).subscribe(
+      () => {
+        // Actualiza el texto del botón después de una solicitud exitosa
+        this.actualizarTextoBoton();
+      },
+      (error) => {
+        console.log('Error al enviar datos:', error);
+      }
+    );
+  }
+
+  boton(): void {
+    this.estado = this.estado === 0 ? 3 : 0; // Cambiar entre 0 y 3
+    this.postData();
+  }
+
+  actualizarTextoBoton(): void {
+    this.textBoton = this.estado === 3 ? 'Desactivar' : 'Activar';
+  }
 
 }

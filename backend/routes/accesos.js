@@ -6,7 +6,7 @@ const router = express.Router();
 (async () => {
     try {
       const connection = await pool.getConnection();
-      console.log('Connected to the MySQL server.');
+      //console.log('Connected to the MySQL server.');
    
         router.get('/recibirAccesos', async (req, res)=>{
           let user =req.query;

@@ -14,6 +14,7 @@ const invitadoB = require("./routes/invitado-buscar")
 const invitadoA = require("./routes/invitado-actualizar")
 const invitadoE = require("./routes/invitado-eliminar")
 const temperatura=require("./routes/temp")
+const modo2 = require("./routes/modo2")
 const app = express();
 
 app.use(cors());
@@ -24,6 +25,7 @@ app.use("/tiempos",tiemposR);
 app.use("/accesos",accesosR);
 app.use("/alarma",alarmaR);
 app.use("/modo1",modo1);
+app.use("/modo2",modo2);
 app.use("/invitado-crear",invitadoC);
 app.use("/crud-global",crud)
 app.use("/adjust-time",adjust_time)
