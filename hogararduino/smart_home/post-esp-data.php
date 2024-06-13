@@ -39,13 +39,21 @@ if (isset($_REQUEST["api_key"])) {
             $sql_enable = "SELECT enablee FROM alarma ORDER BY id DESC LIMIT 1"; 
             $result_enable = $conn->query($sql_enable);  
             
+            /*$sql_total = "SELECT tpuertas, tluces, talarma, tventilador, tesp FROM consumos ORDER BY id DESC LIMIT 1"; 
+            $result_total = $conn->query($sql_total);   */ 
+
+            $mes_actual = date("n");
+
+            $sql_total = "SELECT tpuertas, tluces, talarma, tventilador, tesp FROM consumos WHERE id = $mes_actual"; 
+            $result_total = $conn->query($sql_total); 
+            
             $sql_puertas = "SELECT estado FROM puertas ORDER BY id DESC LIMIT 3"; 
             $result_puertas = $conn->query($sql_puertas); 
             
             $sql_luces = "SELECT estadoluces FROM luces ORDER BY id DESC LIMIT 3"; 
-            $result_luces = $conn->query($sql_luces);
+            $result_luces = $conn->query($sql_luces); 
 
-            if ($result_hogar->num_rows > 0 && $result_alarma->num_rows > 0 && $result_tiempos->num_rows > 0 && $result_temperatura->num_rows > 0 && $result_enable->num_rows > 0 && $result_puertas->num_rows > 0 && $result_luces->num_rows > 0) {
+            if ($result_hogar->num_rows > 0 && $result_alarma->num_rows > 0 && $result_tiempos->num_rows > 0 && $result_temperatura->num_rows > 0 && $result_enable->num_rows > 0 && $result_total->num_rows > 0 && $result_puertas->num_rows > 0 && $result_luces->num_rows > 0) {
                 $row_hogar = $result_hogar->fetch_assoc();
                 $estadohogar = intval($row_hogar['estadohogar']);
                 
@@ -61,7 +69,15 @@ if (isset($_REQUEST["api_key"])) {
                 $enable1 = intval($row_temperatura['enable1']); 
 
                 $row_enable = $result_enable->fetch_assoc();
-                $enable = intval($row_enable['enablee']);
+                $enable = intval($row_enable['enablee']); 
+
+                $row_total = $result_total->fetch_assoc();
+                $tpuertas = intval($row_total['tpuertas']); 
+                $tluces = intval($row_total['tluces']); 
+                $talarma = intval($row_total['talarma']); 
+                $tventilador = intval($row_total['tventilador']); 
+                $tesp = intval($row_total['tesp']);
+                 
 
                 $puertas_data = array(); 
                 $luces_data = array();
@@ -86,7 +102,12 @@ if (isset($_REQUEST["api_key"])) {
                     'bajada' => $bajada,   
                     'referencia' => $referencia, 
                     'enable1' => $enable1,
-                    'enable' => $enable,
+                    'enable' => $enable, 
+                    'tpuertas' => $tpuertas, 
+                    'tluces' => $tluces,
+                    'talarma' => $talarma,
+                    'tventilador' => $tventilador,
+                    'tesp' => $tesp,
                     'estado_puertas' => $puertas_data, 
                     'estado_luces' => $luces_data
                 );

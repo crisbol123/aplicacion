@@ -21,25 +21,22 @@ if (isset($_REQUEST["api_key"])) {
             die("Connection failed: " . $conn->connect_error);
         }
             
-        if (isset($_POST["tiempo1"]) && isset($_POST["tiempo2"]) && isset($_POST["tiempo3"]) && isset($_POST["tiempoalarma"]) && isset($_POST["tiempov"]) && isset($_POST["valormedido"])) {
-            $tiempo1 = intval($_POST["tiempo1"]);
-            $tiempo2 = intval($_POST["tiempo2"]);
-            $tiempo3 = intval($_POST["tiempo3"]);
+        if (isset($_POST["tiempoluces"]) && isset($_POST["tiempop"]) && isset($_POST["tiempototalprograma"]) && isset($_POST["tiempoalarma"]) && isset($_POST["tiempov"]) && isset($_POST["valormedido"])) {
+            $tiempoluces = intval($_POST["tiempoluces"]);
+            $tiempop = intval($_POST["tiempop"]);
+            $tiempototalprograma = intval($_POST["tiempototalprograma"]);
             $tiempoalarma = intval($_POST["tiempoalarma"]); 
             $tiempov = intval($_POST["tiempov"]);  
-            $valormedido = intval($_POST["valormedido"]); 
+            $valormedido = intval($_POST["valormedido"]);  
 
-            // Actualizar registros en la tabla luces por id
-            $sql_update1 = "UPDATE luces SET tiempoactivado = $tiempo1 WHERE id = 1";
-            $sql_update2 = "UPDATE luces SET tiempoactivado = $tiempo2 WHERE id = 2";
-            $sql_update3 = "UPDATE luces SET tiempoactivado = $tiempo3 WHERE id = 3";
-
-            $sql_update_alarma = "UPDATE alarma SET tiempoactivado = $tiempoalarma"; 
+            // Obtener el mes actual
+            $mes_actual = date("n");
 
             // Combinar las actualizaciones de la tabla temperatura en una sola sentencia
-            $sql_update_temp = "UPDATE temperatura SET tiempo = $tiempov, valormedido = $valormedido";
-            
-            if ($conn->query($sql_update1) === TRUE && $conn->query($sql_update2) === TRUE && $conn->query($sql_update3) === TRUE && $conn->query($sql_update_alarma) === TRUE && $conn->query($sql_update_temp) === TRUE) {
+            $sql_update_total = "UPDATE consumos SET tluces =  $tiempoluces, tpuertas = $tiempop, tesp = $tiempototalprograma, talarma =  $tiempoalarma, tventilador =  $tiempov WHERE id = $mes_actual";
+            $sql_update_temp = "UPDATE temperatura SET valormedido =  $valormedido WHERE id = 1";
+
+            if ($conn->query($sql_update_total) === TRUE && $conn->query($sql_update_temp) === TRUE) {
                 echo "Tiempos y tiempo de alarma actualizados correctamente";
             } else {
                 echo "Error al actualizar los tiempos o el tiempo de alarma: " . $conn->error;
