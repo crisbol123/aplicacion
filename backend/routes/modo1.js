@@ -7,11 +7,11 @@ router.post('/post', async (req, res) => {
   let connection;
   try {
     connection = await pool.getConnection();
-    console.log("Fuck");
+    //console.log("Fuck");
 
     // Obtener el estado del cuerpo de la solicitud
     const estado = req.body.estado;
-    console.log("Estado: ",estado);
+    //console.log("Estado: ",estado);
     
     if(estado == 2){
         await connection.query("UPDATE modos SET estadohogar = ? WHERE id = 1", [estado]);
