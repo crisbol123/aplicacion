@@ -26,6 +26,7 @@ export class DeleteAdminLocalComponent implements OnInit{
       this.cedula = params.get('cedula') || '';
     });
   }
+  
   @ViewChild('eliminarForm', { static: false }) eliminarForm!: NgForm;
   eliminarUsuario() {
     this.submitted=true;

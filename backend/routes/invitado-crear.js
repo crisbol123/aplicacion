@@ -12,7 +12,7 @@ router.post('/post', async (req, res) => {
         const connection = await pool.getConnection();
         // Obtener el objeto 'estado' del cuerpo de la solicitud
         const estado = req.body.estado;
-        console.log("Estado",estado);
+        //console.log("Estado",estado);
 
         // Verificar si el objeto 'estado' está vacío
         if (!estado) {
